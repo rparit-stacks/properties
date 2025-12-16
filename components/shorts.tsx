@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function YouTubeShortsSection() {
   const shorts = [
     {
@@ -99,17 +101,10 @@ export default function YouTubeShortsSection() {
                       src={`https://www.youtube.com/embed/${short.id}`}
                       title={short.title}
                       frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
                       className="w-full h-full"
                     ></iframe>
-
-                    {/* Play button overlay */}
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
-                      <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-0 h-0 border-l-4 border-l-black border-y-2 border-y-transparent ml-1"></div>
-                      </div>
-                    </div>
 
                     {/* Duration badge */}
                     <div className="absolute bottom-3 right-3 bg-black/80 text-white px-2 py-1 rounded text-xs font-medium">
@@ -140,9 +135,12 @@ export default function YouTubeShortsSection() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-accent hover:bg-accent/90 text-black px-8 py-3 rounded-full font-medium transition-colors duration-300">
+          <Link
+            href="/shorts"
+            className="inline-block bg-accent hover:bg-accent/90 text-black px-8 py-3 rounded-full font-medium transition-colors duration-300"
+          >
             View All Shorts
-          </button>
+          </Link>
         </div>
       </div>
     </section>

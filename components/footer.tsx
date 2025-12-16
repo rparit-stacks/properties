@@ -82,7 +82,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/about-us"
+                  href="/about"
                   className="text-gray-400 hover:text-accent transition-colors text-sm"
                 >
                   About Us
@@ -105,7 +105,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/how-it-works"
+                  href="/#how-it-works"
                   className="text-gray-400 hover:text-accent transition-colors text-sm"
                 >
                   How It Works
@@ -152,7 +152,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/contact"
+                  href="/#contact"
                   className="text-gray-400 hover:text-accent transition-colors text-sm"
                 >
                   Contact Us
@@ -189,8 +189,8 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
-            © 2025 MiniLands. All rights reserved. | Company Of Lasar Real
-            Estate Venture Private limited
+            © 2025 MiniLands. All rights reserved. | LSAR Real World Assets
+            Private Limited
           </p>
         </div>
       </div>

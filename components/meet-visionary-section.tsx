@@ -49,11 +49,11 @@ export default function MeetVisionarySection() {
           <div className="flex justify-center">
             <div className="relative">
               <Image
-                src="/human-placeholder.jpg"
-                alt="Latifa Bin Haider speaking at an event"
+                src="https://images.pexels.com/photos/1181513/pexels-photo-1181513.jpeg"
+                alt="Visionary leader portrait"
                 width={400}
                 height={400}
-                className="rounded-2xl border border-white/20"
+                className="rounded-2xl border border-white/20 object-cover"
               />
             </div>
           </div>

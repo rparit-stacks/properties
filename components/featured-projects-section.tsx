@@ -18,6 +18,7 @@ interface Property {
   amenities: string[];
   nearbyPlaces: string[];
   promotedBy: string;
+  status: "Launched" | "Upcoming";
 }
 
 export default function FeaturedProjectsSection() {
@@ -53,6 +54,7 @@ export default function FeaturedProjectsSection() {
         "Rajwada - 40min",
       ],
       promotedBy: "LASAR REAL ESTATE VENTURE PRIVATE LIMITED",
+      status: "Launched",
     },
     {
       id: 2,
@@ -82,6 +84,7 @@ export default function FeaturedProjectsSection() {
         "Rajwada - 25min",
       ],
       promotedBy: "Lasar Real Estate Private Limited",
+      status: "Launched",
     },
     {
       id: 3,
@@ -111,6 +114,7 @@ export default function FeaturedProjectsSection() {
         "Rajwada - 35min",
       ],
       promotedBy: "Lasar Real Estate Private Limited",
+      status: "Upcoming",
     },
     {
       id: 4,
@@ -133,6 +137,7 @@ export default function FeaturedProjectsSection() {
         "Proposed Ahilya Path - 2min",
       ],
       promotedBy: "Lasar Real Estate Private Limited",
+      status: "Upcoming",
     },
     {
       id: 5,
@@ -151,6 +156,7 @@ export default function FeaturedProjectsSection() {
       amenities: ["Garden", "Temple", "CCTV Covered Campus", "Kids Play Area"],
       nearbyPlaces: ["IIT Indore - 15min", "Chokhi Dhani - 7min"],
       promotedBy: "Lasar Real Estate Private Limited",
+      status: "Launched",
     },
   ];
 
@@ -189,13 +195,18 @@ export default function FeaturedProjectsSection() {
   return (
     <section className="py-16 bg-background border-t border-white/20 overflow-hidden">
       <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-accent font-semibold text-lg mb-2">
+        <div className="text-center mb-12 px-4">
+          <p className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Featured Projects
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Discover Our Featured Projects
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
+            Discover Our <span className="text-accent">Featured Projects</span>
           </h2>
+          <p className="text-white/70 max-w-2xl mx-auto text-sm md:text-base mb-6">
+            Curated residential and commercial opportunities with strong
+            projected returns, trusted developers, and strategic locations.
+          </p>
           <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
 
           {/* Tab Buttons */}
@@ -250,7 +261,7 @@ export default function FeaturedProjectsSection() {
           )}
 
           {/* Property Cards Container */}
-          <div className="px-16 overflow-hidden">
+          <div className="px-4 sm:px-8 lg:px-16 overflow-hidden">
             <div
               className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 ease-in-out ${isAnimating
                   ? "transform translate-x-2 opacity-90"
@@ -268,14 +279,28 @@ export default function FeaturedProjectsSection() {
                   {/* Property Image */}
                   <div className="relative h-56 overflow-hidden">
                     <Image
-                      src={property.image || "/placeholder.svg"}
+                      src={
+                        property.image ||
+                        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg"
+                      }
                       alt={property.name}
                       fill
                       className="object-cover transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
-                    {/* Single Top Badge - Returns */}
+                    {/* Status and Returns Badges */}
+                    <div className="absolute top-4 left-4 flex flex-col gap-2 items-start">
+                      <span
+                        className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide backdrop-blur-md border ${
+                          property.status === "Launched"
+                            ? "bg-green-500/90 text-black border-green-300"
+                            : "bg-yellow-400/90 text-black border-yellow-200"
+                        }`}
+                      >
+                        {property.status}
+                      </span>
+                    </div>
                     <div className="absolute top-4 right-4">
                       <span className="bg-white/20 text-white px-3 py-1.5 rounded-lg text-sm font-medium backdrop-blur-md border border-white/10">
                         {property.projectedReturns}

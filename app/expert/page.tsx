@@ -12,7 +12,7 @@ export default function ExpertPanelPage() {
       name: "Dr. Sarah Al-Mansouri",
       title: "Real Estate Investment Strategist",
       company: "Dubai Properties Group",
-      image: "/expert-1.jpg",
+      image: "https://images.pexels.com/photos/1181516/pexels-photo-1181516.jpeg",
       bio: "With over 15 years in Middle Eastern real estate markets, Dr. Al-Mansouri specializes in property investment strategies and market analysis.",
       fullBio: "Dr. Sarah Al-Mansouri is a distinguished real estate investment strategist with over 15 years of experience in Middle Eastern property markets. She holds a PhD in Real Estate Finance from the London School of Economics and has been instrumental in developing investment frameworks that have generated over $500M in returns for institutional investors.",
       expertise: ["Market Analysis", "Investment Strategy", "Property Valuation"],
@@ -33,7 +33,7 @@ export default function ExpertPanelPage() {
       name: "Ahmed Hassan",
       title: "Fintech Innovation Director",
       company: "Emirates Financial Services",
-      image: "/expert-2.jpg",
+      image: "https://images.pexels.com/photos/1181605/pexels-photo-1181605.jpeg",
       bio: "A pioneer in financial technology solutions, Ahmed has led digital transformation initiatives across the MENA region's banking sector.",
       fullBio: "Ahmed Hassan is a visionary fintech leader who has spearheaded digital transformation initiatives across the MENA region's banking and financial services sector. With a background in computer science and finance, he has successfully launched 12 fintech products that have collectively processed over $1B in transactions.",
       expertise: ["Fintech Solutions", "Digital Banking", "Crowdfunding"],
@@ -54,7 +54,7 @@ export default function ExpertPanelPage() {
       name: "Marina Rodriguez",
       title: "Regulatory Affairs Specialist",
       company: "UAE Securities Commission",
-      image: "/expert-3.jpg",
+      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
       bio: "Marina ensures compliance and regulatory excellence in emerging financial products, with deep expertise in crowdfunding regulations.",
       fullBio: "Marina Rodriguez brings over a decade of regulatory expertise to the intersection of traditional finance and emerging technologies. As a senior regulatory affairs specialist, she has been pivotal in crafting the regulatory framework for crowdfunding in the UAE.",
       expertise: ["Regulatory Compliance", "Securities Law", "Risk Management"],
@@ -75,7 +75,7 @@ export default function ExpertPanelPage() {
       name: "Khalid Al-Rashid",
       title: "Blockchain Technology Advisor",
       company: "Emirates Blockchain Consortium",
-      image: "/expert-4.jpg",
+      image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg",
       bio: "Leading blockchain integration in real estate transactions, Khalid brings cutting-edge technology solutions to traditional property markets.",
       fullBio: "Khalid Al-Rashid is at the forefront of blockchain technology adoption in real estate and financial services. With a strong technical background and deep understanding of distributed ledger technologies, he has architected blockchain solutions that have revolutionized property transactions in the Middle East.",
       expertise: ["Blockchain Technology", "Smart Contracts", "Digital Assets"],
@@ -198,21 +198,19 @@ export default function ExpertPanelPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Back Button */}
-      <div className="fixed top-6 left-6 z-40">
-        <a
-          href="/"
-          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full border border-white/20 hover:border-accent/50 transition-all duration-300 flex items-center gap-2 group"
-        >
-          <ArrowLeft size={20} className="group-hover:text-accent transition-colors" />
-          <span className="text-sm font-medium group-hover:text-accent transition-colors">Back to Home</span>
-        </a>
-      </div>
-
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      {/* Header + Back */}
+      <section className="pt-6 md:pt-10 pb-16 px-4">
         <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="mb-6 flex justify-start">
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-medium text-white hover:border-accent/50 hover:bg-white/20 hover:text-accent transition-colors"
+            >
+              <ArrowLeft size={16} />
+              <span>Back to Home</span>
+            </a>
+          </div>
+          <div className="text-center mb-12 md:mb-16">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               Our Expert
               <span className="text-accent"> Panel</span>
@@ -242,13 +240,12 @@ export default function ExpertPanelPage() {
       {/* Expert Rows - Alternating Layout */}
       <section className="pb-16 px-4">
         <div className="container max-w-7xl mx-auto">
-          <div className="space-y-16">
+              <div className="space-y-16">
             {experts.map((expert, index) => (
               <div key={expert.id} className="group">
-                <div className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''
-                  }`}>
-                  {/* Image Section */}
-                  <div className={`relative ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                      {/* Image Section */}
+                      <div className={`relative ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                     <div className="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
                       <div className="relative">
                         <Image
@@ -263,8 +260,8 @@ export default function ExpertPanelPage() {
                     </div>
                   </div>
 
-                  {/* Details Section */}
-                  <div className={`space-y-6 ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
+                      {/* Details Section */}
+                      <div className={`space-y-6 ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>
                     <div>
                       <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">
                         {expert.name}
@@ -303,21 +300,21 @@ export default function ExpertPanelPage() {
                       </div>
                     </div>
 
-                    {/* Action Button */}
-                    <button
-                      onClick={() => setSelectedExpert(expert)}
-                      className="bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-accent/80 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-                    >
-                      View Full Profile
-                      <ChevronRight size={20} />
-                    </button>
+                      {/* Action Button */}
+                      <button
+                        onClick={() => setSelectedExpert(expert)}
+                        className="bg-accent text-black px-6 py-3 rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                      >
+                        View Full Profile
+                        <ChevronRight size={20} />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Collective Expertise Section */}
       <section className="py-16 px-4 border-t border-white/20">
@@ -366,7 +363,7 @@ export default function ExpertPanelPage() {
             Have questions about our investment strategies or want to learn more about our approach?
             Our expert panel is available for consultation and guidance.
           </p>
-          <button className="bg-accent text-white px-8 py-4 rounded-full font-semibold hover:bg-accent/80 transition-all duration-300 transform hover:scale-105">
+          <button className="bg-accent text-black px-8 py-4 rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 transform hover:scale-105">
             Schedule a Consultation
           </button>
         </div>

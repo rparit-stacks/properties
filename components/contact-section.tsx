@@ -5,7 +5,10 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="py-16 bg-background border-t border-white/20">
+    <section
+      id="contact"
+      className="py-16 bg-background border-t border-white/20"
+    >
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">

@@ -187,7 +187,7 @@ export default function PropertiesPage({
   const commercialProperties = properties.filter(p => p.type === "commercial");
 
   const renderPropertyCards = (propertyList: Property[]) => (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
       {propertyList.map((property, index) => (
         <div
           key={property.id}
@@ -199,7 +199,10 @@ export default function PropertiesPage({
           {/* Property Image */}
           <div className="relative h-52 overflow-hidden">
             <Image
-              src={property.image || "/placeholder.svg"}
+              src={
+                property.image ||
+                "https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg"
+              }
               alt={property.name}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -283,23 +286,22 @@ export default function PropertiesPage({
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="bg-background ">
-        <div className="container max-w-7xl mx-auto px-4 py-8">
-          {/* Back Button */}
-          <div className="fixed top-6 left-6 z-40">
+        <div className="container max-w-7xl mx-auto px-4 pt-6 pb-8">
+          <div className="mb-4 flex justify-start">
             <a
               href="/"
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full border border-white/20 hover:border-accent/50 transition-all duration-300 flex items-center gap-2 group"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-medium text-white hover:border-accent/50 hover:bg-white/20 hover:text-accent transition-colors"
             >
-              <ArrowLeft size={20} className="group-hover:text-accent transition-colors" />
-              <span className="text-sm font-medium group-hover:text-accent transition-colors">Back to Home</span>
+              <ArrowLeft size={16} />
+              <span>Back to Home</span>
             </a>
           </div>
 
-          <div className="text-center mb-8">
+          <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Our Properties
             </h1>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto">
+            <p className="text-white/70 text-lg max-w-2xl mx-auto mt-2">
               Discover premium real estate investment opportunities with guaranteed returns
             </p>
           </div>

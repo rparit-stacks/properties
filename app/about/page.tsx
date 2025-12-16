@@ -54,13 +54,13 @@ const AboutUsPage = () => {
   return (
     <div className="min-h-screen bg-background">
 
-      <div className="fixed top-6 left-6 z-40">
+      <div className="container max-w-7xl mx-auto px-4 pt-6">
         <a
           href="/"
-          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full border border-white/20 hover:border-accent/50 transition-all duration-300 flex items-center gap-2 group"
+          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-medium text-white hover:border-accent/50 hover:bg-white/20 hover:text-accent transition-colors"
         >
-          <ArrowLeft size={20} className="group-hover:text-accent transition-colors" />
-          <span className="text-sm font-medium group-hover:text-accent transition-colors">Back to Home</span>
+          <ArrowLeft size={16} />
+          <span>Back to Home</span>
         </a>
       </div>
       {/* Hero Section with Image */}
