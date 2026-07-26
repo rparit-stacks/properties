@@ -1,95 +1,134 @@
 'use client'
 import React, { useState } from 'react';
 import Image from "next/image";
-import { Award, Users, TrendingUp, Shield, Mail, Linkedin, Twitter, ChevronRight, ArrowLeft } from 'lucide-react';
+import Link from "next/link";
+import { Award, Users, TrendingUp, Shield, ChevronRight } from 'lucide-react';
+
+type Expert = {
+  id: number;
+  name: string;
+  title: string;
+  company: string;
+  image: string;
+  bio: string;
+  fullBio: string;
+  expertise: string[];
+  achievements: string[];
+  education: string;
+  experience: string;
+  email?: string;
+  linkedin?: string;
+  twitter?: string;
+};
+
+interface ExpertModalProps {
+  expert: Expert;
+  onClose: () => void;
+}
 
 export default function ExpertPanelPage() {
-  const [selectedExpert, setSelectedExpert] = useState(null);
+  const [selectedExpert, setSelectedExpert] = useState<Expert | null>(null);
 
-  const experts = [
+  const experts: Expert[] = [
     {
       id: 1,
-      name: "Dr. Sarah Al-Mansouri",
-      title: "Real Estate Investment Strategist",
-      company: "Dubai Properties Group",
-      image: "https://images.pexels.com/photos/1181516/pexels-photo-1181516.jpeg",
-      bio: "With over 15 years in Middle Eastern real estate markets, Dr. Al-Mansouri specializes in property investment strategies and market analysis.",
-      fullBio: "Dr. Sarah Al-Mansouri is a distinguished real estate investment strategist with over 15 years of experience in Middle Eastern property markets. She holds a PhD in Real Estate Finance from the London School of Economics and has been instrumental in developing investment frameworks that have generated over $500M in returns for institutional investors.",
-      expertise: ["Market Analysis", "Investment Strategy", "Property Valuation"],
-      achievements: [
-        "Led investment strategies for $500M+ in real estate assets",
-        "Published 25+ research papers on MENA real estate markets",
-        "Awarded 'Real Estate Professional of the Year' 2023",
-        "Advisory board member for 3 major property funds"
+      name: "Sanjay Saxena",
+      title: "Digital Finance Advisor & MSME Advocate",
+      company: "Visionary leader in India’s digital payments ecosystem",
+      image: "/expert/sanjay.png",
+      bio: "Chartered Accountant and financial executive who helped shape India’s digital payments landscape through leadership roles at NPCI, UIDAI and Paytm Payments Bank.",
+      fullBio:
+        "Sanjay Saxena is a visionary financial executive and Chartered Accountant with a defining role in shaping India’s digital payments ecosystem. As a founding member and former CFO of institutions such as NPCI and UIDAI, and a key leader at Paytm Payments Bank, he has been instrumental in driving national-scale initiatives including UPI, RuPay and FASTag. His work has transformed how India transacts digitally and strengthened the financial infrastructure for millions of individuals and MSMEs across the country.",
+      expertise: [
+        "Fintech Leadership",
+        "Digital Payments Innovation",
+        "MSME Growth & Policy",
       ],
-      education: "PhD Real Estate Finance, London School of Economics",
-      experience: "15+ years",
-      email: "sarah.almansouri@example.com",
-      linkedin: "linkedin.com/in/sarahalmansouri",
-      twitter: "@sarahalmansouri"
+      achievements: [
+        "Founding leadership roles at NPCI, UIDAI and Paytm Payments Bank",
+        "Instrumental in rollout of UPI, RuPay and FASTag in India",
+        "Advisor to MSMEs on digital finance adoption and growth",
+      ],
+      education: "Chartered Accountant (CA)",
+      experience: "20+ years",
+      email: "",
+      linkedin: "",
+      twitter: "",
     },
     {
       id: 2,
-      name: "Ahmed Hassan",
-      title: "Fintech Innovation Director",
-      company: "Emirates Financial Services",
-      image: "https://images.pexels.com/photos/1181605/pexels-photo-1181605.jpeg",
-      bio: "A pioneer in financial technology solutions, Ahmed has led digital transformation initiatives across the MENA region's banking sector.",
-      fullBio: "Ahmed Hassan is a visionary fintech leader who has spearheaded digital transformation initiatives across the MENA region's banking and financial services sector. With a background in computer science and finance, he has successfully launched 12 fintech products that have collectively processed over $1B in transactions.",
-      expertise: ["Fintech Solutions", "Digital Banking", "Crowdfunding"],
-      achievements: [
-        "Launched 12 successful fintech products",
-        "Processed $1B+ in digital transactions",
-        "Winner of 'Fintech Innovation Award' 2022",
-        "Keynote speaker at 50+ industry conferences"
+      name: "Priyanshu Khare",
+      title: "High Court Advocate – Property & Land Disputes",
+      company: "High Court Advocate – Civil & Property Matters",
+      image: "/expert/priyanshu.png",
+      bio: "Experienced High Court Advocate specialising in land and property disputes, providing clear legal guidance on complex title and ownership issues.",
+      fullBio:
+        "Priyanshu Khare is an experienced High Court Advocate specialising in land and property dispute matters. Known for providing clear, practical legal guidance on complex title, ownership and civil litigation cases, he represents clients before civil courts and the High Court with a detail-oriented approach and strong courtroom presence. Priyanshu focuses on ensuring fair resolutions and robust protection of property rights with integrity and professionalism.",
+      expertise: [
+        "Property & Land Disputes",
+        "Civil Litigation",
+        "Title & Ownership Matters",
       ],
-      education: "MSc Financial Technology, MIT",
-      experience: "12+ years",
-      email: "ahmed.hassan@example.com",
-      linkedin: "linkedin.com/in/ahmedhassan",
-      twitter: "@ahmedhassan"
+      achievements: [
+        "Handled numerous complex land and property dispute cases",
+        "Trusted advisor on title and ownership verification",
+        "Recognised for clear, client-centric legal counsel",
+      ],
+      education: "LL.B, Advocate – High Court",
+      experience: "10+ years",
+      email: "",
+      linkedin: "",
+      twitter: "",
     },
     {
       id: 3,
-      name: "Marina Rodriguez",
-      title: "Regulatory Affairs Specialist",
-      company: "UAE Securities Commission",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
-      bio: "Marina ensures compliance and regulatory excellence in emerging financial products, with deep expertise in crowdfunding regulations.",
-      fullBio: "Marina Rodriguez brings over a decade of regulatory expertise to the intersection of traditional finance and emerging technologies. As a senior regulatory affairs specialist, she has been pivotal in crafting the regulatory framework for crowdfunding in the UAE.",
-      expertise: ["Regulatory Compliance", "Securities Law", "Risk Management"],
-      achievements: [
-        "Drafted key crowdfunding regulations for UAE",
-        "Compliance advisor for 30+ fintech startups",
-        "Recognized expert in securities law",
-        "Published regulatory guidelines adopted region-wide"
+      name: "Shashikant Lasar",
+      title: "Real Estate Advisor & Asset Management Expert",
+      company: "Real Estate Advisory & Asset Management – Indore",
+      image: "/expert/Shashikant%20.png",
+      bio: "Seasoned real estate professional from Indore helping investors with property advisory, asset management and portfolio-driven real estate solutions.",
+      fullBio:
+        "Shashikant Lasar is a seasoned real estate professional with over eight years of experience in the Indore market. He specialises in property advisory, asset management and portfolio-driven real estate solutions, helping clients take informed investment decisions and manage their property assets efficiently. Through strategic and data-backed planning, Shashikant focuses on optimising personal financial portfolios via carefully curated real estate opportunities.",
+      expertise: [
+        "Real Estate Advisory",
+        "Asset & Portfolio Management",
+        "Investment Planning",
       ],
-      education: "LLM Securities Law, Harvard Law School",
-      experience: "10+ years",
-      email: "marina.rodriguez@example.com",
-      linkedin: "linkedin.com/in/marinarodriguez",
-      twitter: "@marinarodriguez"
+      achievements: [
+        "Advised on numerous residential and commercial transactions in Indore",
+        "Helps investors build long-term, goal-based real estate portfolios",
+        "Known for practical, data-backed investment recommendations",
+      ],
+      education: "Real Estate & Asset Management Professional",
+      experience: "8+ years",
+      email: "",
+      linkedin: "",
+      twitter: "",
     },
     {
       id: 4,
-      name: "Khalid Al-Rashid",
-      title: "Blockchain Technology Advisor",
-      company: "Emirates Blockchain Consortium",
-      image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg",
-      bio: "Leading blockchain integration in real estate transactions, Khalid brings cutting-edge technology solutions to traditional property markets.",
-      fullBio: "Khalid Al-Rashid is at the forefront of blockchain technology adoption in real estate and financial services. With a strong technical background and deep understanding of distributed ledger technologies, he has architected blockchain solutions that have revolutionized property transactions in the Middle East.",
-      expertise: ["Blockchain Technology", "Smart Contracts", "Digital Assets"],
-      achievements: [
-        "Architected blockchain solutions for $200M+ in property transactions",
-        "Reduced transaction processing time by 70%",
-        "Holds 8 blockchain technology patents",
-        "Founded Emirates Blockchain Consortium"
+      name: "Rohit Parit",
+      title: "Technology Consultant & Backend Systems Architect",
+      company: "Java & Spring Boot | Scalable Backend Systems",
+      image: "/expert/rohit.png",
+      bio: "Results-driven technology expert specialising in Java-based backend systems, secure APIs and scalable platforms for fintech, payments and service-based products.",
+      fullBio:
+        "Rohit Parit is a results-driven technology consultant and backend systems architect specialising in Java-based backend systems and full-stack application development. He has experience building secure, scalable and high-performance platforms for fintech, payments and service-based products, including enterprise-grade systems, banking migrations, payment integrations and real-time applications. Known for strong system design, API architecture and security-first development, Rohit works extensively with Spring Boot, microservices and Kafka-driven architectures to turn business vision into reliable technology solutions.",
+      expertise: [
+        "Java & Spring Boot Architecture",
+        "Fintech & Payment Systems",
+        "Scalable Backend & Security (JWT, RBAC, Kafka)",
       ],
-      education: "MSc Blockchain Technology, Stanford University",
-      experience: "8+ years",
-      email: "khalid.alrashid@example.com",
-      linkedin: "linkedin.com/in/khalidalrashid",
-      twitter: "@khalidalrashid"
+      achievements: [
+        "Designed and implemented secure, scalable Java/Spring Boot backends for fintech and payment platforms",
+        "Led backend development for enterprise banking migrations and payment integrations",
+        "Specialises in microservices, Kafka and security-first (JWT, RBAC) architecture design",
+      ],
+      education: "B.C.A/M.C.A (Backend Engineering Focus)",
+      experience: "5+ years",
+      email: "",
+      linkedin: "",
+      twitter: "",
     },
   ];
 
@@ -100,7 +139,7 @@ export default function ExpertPanelPage() {
     { icon: Shield, value: "25+", label: "Industry Awards" }
   ];
 
-  const ExpertModal = ({ expert, onClose }) => (
+  const ExpertModal = ({ expert, onClose }: ExpertModalProps) => (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-slate-900 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-white/20">
         <div className="p-8">
@@ -134,7 +173,7 @@ export default function ExpertPanelPage() {
 
               <h4 className="text-xl font-semibold text-white mb-4">Key Achievements</h4>
               <ul className="space-y-2 mb-6">
-                {expert.achievements.map((achievement, index) => (
+                {expert.achievements.map((achievement: string, index: number) => (
                   <li key={index} className="text-gray-300 flex items-start gap-2">
                     <span className="text-blue-400 mt-1">•</span>
                     {achievement}
@@ -159,34 +198,16 @@ export default function ExpertPanelPage() {
               </div>
 
               <div className="bg-white/5 rounded-2xl p-6 border border-white/10 mb-6">
-                <h4 className="text-lg font-semibold text-white mb-4">Expertise</h4>
+                <h4 className="text-lg font-semibold text-white mb-4">Focus Areas</h4>
                 <div className="flex flex-wrap gap-2">
-                  {expert.expertise.map((skill, index) => (
+                  {expert.expertise.map((area: string, index: number) => (
                     <span
                       key={index}
                       className="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full border border-accent/30"
                     >
-                      {skill}
+                      {area}
                     </span>
                   ))}
-                </div>
-              </div>
-
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
-                <div className="space-y-3">
-                  <a href={`mailto:${expert.email}`} className="flex items-center gap-3 text-gray-300 hover:text-accent transition-colors">
-                    <Mail size={16} />
-                    <span className="text-sm">Email</span>
-                  </a>
-                  <a href={`https://${expert.linkedin}`} className="flex items-center gap-3 text-gray-300 hover:text-accent transition-colors">
-                    <Linkedin size={16} />
-                    <span className="text-sm">LinkedIn</span>
-                  </a>
-                  <a href={`https://twitter.com/${expert.twitter.replace('@', '')}`} className="flex items-center gap-3 text-gray-300 hover:text-accent transition-colors">
-                    <Twitter size={16} />
-                    <span className="text-sm">Twitter</span>
-                  </a>
                 </div>
               </div>
             </div>
@@ -197,19 +218,10 @@ export default function ExpertPanelPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Header + Back */}
-      <section className="pt-6 md:pt-10 pb-16 px-4">
+    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Hero + Stats */}
+      <section className="pt-10 md:pt-12 pb-16 px-4">
         <div className="container max-w-7xl mx-auto">
-          <div className="mb-6 flex justify-start">
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-medium text-white hover:border-accent/50 hover:bg-white/20 hover:text-accent transition-colors"
-            >
-              <ArrowLeft size={16} />
-              <span>Back to Home</span>
-            </a>
-          </div>
           <div className="text-center mb-12 md:mb-16">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
               Our Expert
@@ -246,18 +258,16 @@ export default function ExpertPanelPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                       {/* Image Section */}
                       <div className={`relative ${index % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
-                    <div className="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
-                      <div className="relative">
-                        <Image
-                          src={expert.image}
-                          alt={expert.name}
-                          width={250}
-                          height={250}
-                          className="rounded-2xl w-full h-60 object-cover border-2 border-white/20 group-hover:border-accent/50 transition-all duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent rounded-2xl"></div>
+                      <div className="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+                        <div className="relative aspect-square w-full max-w-sm mx-auto overflow-hidden rounded-2xl">
+                          <Image
+                            src={expert.image}
+                            alt={expert.name}
+                            fill
+                            className="object-cover rounded-2xl border-2 border-white/20 group-hover:border-accent/50 transition-all duration-300"
+                          />
+                        </div>
                       </div>
-                    </div>
                   </div>
 
                       {/* Details Section */}
@@ -363,9 +373,12 @@ export default function ExpertPanelPage() {
             Have questions about our investment strategies or want to learn more about our approach?
             Our expert panel is available for consultation and guidance.
           </p>
-          <button className="bg-accent text-black px-8 py-4 rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 transform hover:scale-105">
+          <Link
+            href="/#contact"
+            className="inline-flex items-center justify-center bg-accent text-black px-8 py-4 rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 transform hover:scale-105"
+          >
             Schedule a Consultation
-          </button>
+          </Link>
         </div>
       </section>
 

@@ -1,0 +1,57 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mainOrb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EAE8E9" stop-opacity="0.4" />
+      <stop offset="1" stop-color="#EAE8E9" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="0" stop-color="#EAE8E9" stop-opacity="0.85" />
+      <stop offset="1" stop-color="#EAE8E9" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#EAE8E9" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#EAE8E9" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+
+  <!-- Main orb -->
+  <circle cx="450" cy="450" r="380" fill="url(#mainOrb)" opacity="0.9" />
+
+  <!-- Inner glow -->
+  <circle cx="450" cy="450" r="230" fill="url(#centerGlow)" opacity="0.8" />
+
+  <!-- Concentric rings -->
+  <circle cx="450" cy="450" r="320" stroke="#EAE8E9" stroke-opacity="0.18" stroke-width="1.5" />
+  <circle cx="450" cy="450" r="260" stroke="#EAE8E9" stroke-opacity="0.14" stroke-width="1.5" />
+  <circle cx="450" cy="450" r="200" stroke="#EAE8E9" stroke-opacity="0.1" stroke-width="1.5" />
+
+  <!-- Diagonal accent lines -->
+  <path d="M120 520L780 320" stroke="url(#accentLine)" stroke-width="1.4" stroke-linecap="round" stroke-opacity="0.8" />
+  <path d="M140 610L800 410" stroke="url(#accentLine)" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.7" />
+  <path d="M100 430L760 230" stroke="url(#accentLine)" stroke-width="1.1" stroke-linecap="round" stroke-opacity="0.6" />
+
+  <!-- Small nodes along rings -->
+  <g fill="#EAE8E9">
+    <circle cx="230" cy="410" r="3" />
+    <circle cx="320" cy="290" r="3.2" />
+    <circle cx="420" cy="260" r="2.8" />
+    <circle cx="540" cy="280" r="3" />
+    <circle cx="620" cy="340" r="3.2" />
+    <circle cx="670" cy="430" r="3" />
+    <circle cx="640" cy="520" r="3.1" />
+    <circle cx="560" cy="590" r="3.1" />
+    <circle cx="450" cy="620" r="3.1" />
+    <circle cx="340" cy="590" r="3.1" />
+    <circle cx="270" cy="520" r="3.1" />
+  </g>
+
+  <!-- Tiny orbiting dots -->
+  <g fill="#EAE8E9" fill-opacity="0.6">
+    <circle cx="190" cy="340" r="2" />
+    <circle cx="710" cy="300" r="2" />
+    <circle cx="760" cy="520" r="2" />
+    <circle cx="260" cy="650" r="2" />
+  </g>
+</svg>
+
+

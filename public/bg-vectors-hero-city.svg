@@ -1,0 +1,114 @@
+<svg width="1200" height="500" viewBox="0 0 1200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cityGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EAE8E9" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#EAE8E9" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="cityDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1F2937" />
+      <stop offset="1" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ground -->
+  <rect x="0" y="360" width="1200" height="140" fill="url(#cityDark)" opacity="0.95" />
+
+  <!-- Buildings back layer -->
+  <g opacity="0.35">
+    <rect x="40" y="140" width="80" height="220" rx="4" fill="url(#cityGlow)" />
+    <rect x="170" y="110" width="110" height="250" rx="4" fill="url(#cityGlow)" />
+    <rect x="330" y="150" width="90" height="210" rx="4" fill="url(#cityGlow)" />
+    <rect x="470" y="90" width="130" height="270" rx="4" fill="url(#cityGlow)" />
+    <rect x="640" y="130" width="90" height="230" rx="4" fill="url(#cityGlow)" />
+    <rect x="770" y="100" width="120" height="260" rx="4" fill="url(#cityGlow)" />
+    <rect x="930" y="140" width="100" height="220" rx="4" fill="url(#cityGlow)" />
+    <rect x="1060" y="120" width="80" height="240" rx="4" fill="url(#cityGlow)" />
+  </g>
+
+  <!-- Buildings front layer -->
+  <g opacity="0.85">
+    <rect x="90" y="190" width="90" height="200" rx="4" fill="#020617" />
+    <rect x="250" y="170" width="105" height="220" rx="4" fill="#020617" />
+    <rect x="420" y="160" width="115" height="230" rx="4" fill="#020617" />
+    <rect x="610" y="180" width="100" height="210" rx="4" fill="#020617" />
+    <rect x="770" y="190" width="120" height="200" rx="4" fill="#020617" />
+    <rect x="950" y="175" width="110" height="215" rx="4" fill="#020617" />
+  </g>
+
+  <!-- Windows -->
+  <g opacity="0.85">
+    <!-- Repeat pattern of windows -->
+    <g fill="#FACC15">
+      <!-- building 1 -->
+      <rect x="100" y="205" width="8" height="8" rx="1" />
+      <rect x="120" y="205" width="8" height="8" rx="1" />
+      <rect x="140" y="205" width="8" height="8" rx="1" />
+      <rect x="100" y="230" width="8" height="8" rx="1" />
+      <rect x="120" y="230" width="8" height="8" rx="1" />
+      <rect x="140" y="230" width="8" height="8" rx="1" />
+      <rect x="100" y="255" width="8" height="8" rx="1" />
+      <rect x="120" y="255" width="8" height="8" rx="1" />
+      <rect x="140" y="255" width="8" height="8" rx="1" />
+
+      <!-- building 2 -->
+      <rect x="262" y="190" width="8" height="8" rx="1" />
+      <rect x="282" y="190" width="8" height="8" rx="1" />
+      <rect x="302" y="190" width="8" height="8" rx="1" />
+      <rect x="262" y="215" width="8" height="8" rx="1" />
+      <rect x="282" y="215" width="8" height="8" rx="1" />
+      <rect x="302" y="215" width="8" height="8" rx="1" />
+      <rect x="262" y="240" width="8" height="8" rx="1" />
+      <rect x="282" y="240" width="8" height="8" rx="1" />
+      <rect x="302" y="240" width="8" height="8" rx="1" />
+
+      <!-- building 3 -->
+      <rect x="435" y="185" width="8" height="8" rx="1" />
+      <rect x="455" y="185" width="8" height="8" rx="1" />
+      <rect x="475" y="185" width="8" height="8" rx="1" />
+      <rect x="435" y="210" width="8" height="8" rx="1" />
+      <rect x="455" y="210" width="8" height="8" rx="1" />
+      <rect x="475" y="210" width="8" height="8" rx="1" />
+      <rect x="435" y="235" width="8" height="8" rx="1" />
+      <rect x="455" y="235" width="8" height="8" rx="1" />
+      <rect x="475" y="235" width="8" height="8" rx="1" />
+
+      <!-- building 4 -->
+      <rect x="625" y="200" width="8" height="8" rx="1" />
+      <rect x="645" y="200" width="8" height="8" rx="1" />
+      <rect x="665" y="200" width="8" height="8" rx="1" />
+      <rect x="625" y="225" width="8" height="8" rx="1" />
+      <rect x="645" y="225" width="8" height="8" rx="1" />
+      <rect x="665" y="225" width="8" height="8" rx="1" />
+      <rect x="625" y="250" width="8" height="8" rx="1" />
+      <rect x="645" y="250" width="8" height="8" rx="1" />
+      <rect x="665" y="250" width="8" height="8" rx="1" />
+
+      <!-- building 5 -->
+      <rect x="785" y="205" width="8" height="8" rx="1" />
+      <rect x="805" y="205" width="8" height="8" rx="1" />
+      <rect x="825" y="205" width="8" height="8" rx="1" />
+      <rect x="785" y="230" width="8" height="8" rx="1" />
+      <rect x="805" y="230" width="8" height="8" rx="1" />
+      <rect x="825" y="230" width="8" height="8" rx="1" />
+      <rect x="785" y="255" width="8" height="8" rx="1" />
+      <rect x="805" y="255" width="8" height="8" rx="1" />
+      <rect x="825" y="255" width="8" height="8" rx="1" />
+
+      <!-- building 6 -->
+      <rect x="965" y="195" width="8" height="8" rx="1" />
+      <rect x="985" y="195" width="8" height="8" rx="1" />
+      <rect x="1005" y="195" width="8" height="8" rx="1" />
+      <rect x="965" y="220" width="8" height="8" rx="1" />
+      <rect x="985" y="220" width="8" height="8" rx="1" />
+      <rect x="1005" y="220" width="8" height="8" rx="1" />
+      <rect x="965" y="245" width="8" height="8" rx="1" />
+      <rect x="985" y="245" width="8" height="8" rx="1" />
+      <rect x="1005" y="245" width="8" height="8" rx="1" />
+    </g>
+  </g>
+
+  <!-- Glow on horizon -->
+  <ellipse cx="600" cy="360" rx="520" ry="90" fill="url(#cityGlow)" opacity="0.3" />
+</svg>
+
+

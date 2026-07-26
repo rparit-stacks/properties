@@ -2,59 +2,47 @@ import Image from "next/image";
 
 export default function MeetVisionarySection() {
   return (
-    <section className="py-16 bg-background border-t border-white/20">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Meet Our Visionary
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
+    <section className="section-shine py-16 md:py-20">
+      <div className="container relative mx-auto max-w-6xl px-4">
+        <div className="mx-auto mb-12 max-w-2xl text-center">
+          <span className="eyebrow">Leadership</span>
+          <h2 className="section-heading mt-5">Meet Our Visionary</h2>
+          <div className="gold-rule mt-6" />
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Content */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-6">
-              <Image
-                src="/logo.png"
-                alt="MiniLands Logo"
-                width={32}
-                height={32}
-              />
-              <span className="text-accent font-semibold text-lg">
-                MiniLands
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-8">
+          <div className="relative aspect-[3/2] w-full max-w-2xl overflow-hidden rounded-2xl border border-accent/20 shadow-glow shadow-panel">
+            <Image
+              src="/0.jpg"
+              alt="Founder Shashikant Lasar"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 70vw, 800px"
+              priority
+            />
+          </div>
+
+          <div className="w-full space-y-5 text-center">
+            <div className="mb-2 flex items-center justify-center gap-3">
+              <Image src="/logo.png" alt="MiniLands Logo" width={32} height={32} />
+              <span className="text-lg font-semibold text-white">
+                Mini<span className="text-accent">Lands</span>
               </span>
             </div>
 
-            <p className="text-white text-lg leading-relaxed">
-              Latifa Bin Haider, a visionary Emirati entrepreneur, is the
-              driving force behind MiniLands, a groundbreaking real estate
-              crowdfunding platform. Inspired by her grandmother's wisdom to
-              invest in tangible assets like gold, land, and property. With her
-              innovative approach she has revolutionized the way individuals can
-              invest in real estate, making it accessible to a wider audience.
-            </p>
-
-            <div className="pt-4">
-              <h3 className="text-accent font-semibold text-lg">
-                Latifa Bin Haider
-              </h3>
-              <p className="text-gray-400">
-                Founder & Managing Partner of MiniLands
+            <div className="space-y-2">
+              <p className="text-sm uppercase tracking-[0.18em] text-accent/90">
+                Founder&apos;s Vision – Shashikant Lasar
               </p>
+              <h3 className="text-2xl font-semibold leading-snug text-white md:text-3xl">
+                Founder, MiniLands &amp; Lasar Real World Assets Pvt. Ltd.
+              </h3>
             </div>
-          </div>
 
-          {/* Right side - Image */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <Image
-                src="https://images.pexels.com/photos/1181513/pexels-photo-1181513.jpeg"
-                alt="Visionary leader portrait"
-                width={400}
-                height={400}
-                className="rounded-2xl border border-white/20 object-cover"
-              />
+            <div className="glass-panel p-5 shadow-panel md:p-6">
+              <p className="whitespace-pre-line text-center text-sm leading-relaxed text-slate-200 md:text-base">
+                {`"My dream has always been to make property investment accessible to everyone—not just to the wealthy elite. Traditionally, it is the rich who invest in real estate and benefit from capital appreciation. I want this opportunity to reach people from lower-income groups as well.\n\nImagine a world where even a housewife, with her careful savings, can confidently invest in premium, A-grade properties. Imagine making high-quality real estate accessible to every individual, regardless of their financial background.\n\nMiniLands is the platform that will make this possible. Through our fractional real estate model, we are building a future where anyone can enter the property market with ease—completely digital, fully transparent, with simple entry and simple exit.\n\nWe are here to create a new era of inclusive wealth-building through real estate. This is not just a business—it's a mission to empower the everyday investor.\n\nWelcome to MiniLands. Mini Steps Major Gains."`}
+              </p>
             </div>
           </div>
         </div>

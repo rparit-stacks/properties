@@ -1,9 +1,7 @@
- "use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
 import TrustSection from "@/components/trust-section";
 import DubaiRealEstateSection from "@/components/dubai-real-estate-section";
 import WhyBaytukumSection from "@/components/why-baytukum-section";
@@ -14,234 +12,170 @@ import InvestorsResourcesSection from "@/components/investors-resources-section"
 import TestimonialsSection from "@/components/testimonials-section";
 import MeetVisionarySection from "@/components/meet-visionary-section";
 import ContactSection from "@/components/contact-section";
-import Footer from "@/components/footer";
 import ExpertPanelSection from "@/components/expertpanel";
 import YouTubeVideosSection from "@/components/youtube";
 import YouTubeShortsSection from "@/components/shorts";
+import AppDownloadSection from "@/components/app-download-section";
 
 export default function Home() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/logo.png"
-              alt="MiniLands Logo"
-              width={40}
-              height={40}
-              className="h-10 w-auto -mt-4"
-            />
-            <span
-              className="text-accent font-semibold text-xl"
-              style={{ color: "#eae8e9" }}
-            >
-              MiniLands
-            </span>
-          </div>
-          <nav
-            className="hidden md:flex items-center space-x-6 text-sm font-medium"
-          >
-            <Link href="/" className="text-foreground border-b-2 border-accent">
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/properties"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Projects
-            </Link>
-            <Link
-              href="/expert"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Expert Panel
-            </Link>
-            <Link
-              href="/blogs"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Blogs
-            </Link>
-            <Link
-              href="/faq"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              FAQ's
-            </Link>
-            <Link
-              href="/login"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Login
-            </Link>
-          </nav>
+    <>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        {/* Background vector / gradient */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+          <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-accent/20 blur-3xl md:h-[420px] md:w-[420px]" />
+          <div className="absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl md:h-[420px] md:w-[420px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(254,204,87,0.12),transparent_40%)]" />
 
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:text-foreground hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent"
-            onClick={() => setMobileOpen((prev) => !prev)}
-          >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-
-        {/* Mobile menu panel */}
-        {mobileOpen && (
-          <div className="md:hidden border-t border-border/40 bg-background/98">
-            <div className="container py-3 flex flex-col space-y-2 text-sm font-medium">
-              <Link href="/" onClick={() => setMobileOpen(false)} className="text-foreground">
-                Home
-              </Link>
-              <Link
-                href="/about"
-                onClick={() => setMobileOpen(false)}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/properties"
-                onClick={() => setMobileOpen(false)}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Projects
-              </Link>
-              <Link
-                href="/expert"
-                onClick={() => setMobileOpen(false)}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Expert Panel
-              </Link>
-              <Link
-                href="/blogs"
-                onClick={() => setMobileOpen(false)}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Blogs
-              </Link>
-              <Link
-                href="/faq"
-                onClick={() => setMobileOpen(false)}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                FAQ&apos;s
-              </Link>
-              <Link
-                href="/login"
-                onClick={() => setMobileOpen(false)}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Login
-              </Link>
-            </div>
-          </div>
-        )}
-      </header>
-
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden">
-          {/* Background vector / gradient */}
-          <div
-            className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
-          >
+          {/* Soft vector accents */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <div
-              className="absolute -right-40 -top-40 w-80 h-80 md:w-[420px] md:h-[420px] rounded-full bg-accent/10 blur-3xl"
-            />
-            <div
-              className="absolute -left-40 bottom-0 w-80 h-80 md:w-[420px] md:h-[420px] rounded-full bg-emerald-500/5 blur-3xl"
-            />
-          </div>
-
-          <div className="container relative z-10 py-16 md:py-24 lg:py-28 flex flex-col lg:flex-row items-center gap-10">
-            {/* Left: Text */}
-            <div className="lg:w-1/2 max-w-2xl space-y-6">
-              <span className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-4 py-1 text-xs font-medium uppercase tracking-[0.15em] text-accent">
-                Fractional Real Estate • India
-              </span>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Start Building Wealth
-                <br className="hidden sm:block" />
-                <span className="text-accent">With MIS</span>
-              </h1>
-
-              <p className="text-lg md:text-2xl text-accent font-medium">
-                India’s most trusted fractional ownership platform
-              </p>
-
-              <p className="text-white/80 text-sm md:text-base max-w-xl">
-                Invest from as low as <span className="font-semibold">Rupees One Lakh</span> in
-                curated, professionally managed properties. Access real estate
-                like an institution—without the complexity.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  href="/properties"
-                  className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-black shadow-lg hover:bg-accent/90 transition-colors"
-                >
-                  Explore Projects
-                </Link>
-                <Link
-                  href="/#how-it-works"
-                  className="text-sm font-medium text-white/80 hover:text-accent transition-colors"
-                >
-                  See how it works
-                </Link>
-              </div>
-
-              <div className="flex flex-wrap gap-4 text-xs md:text-sm text-white/60 pt-4">
-                <span>SEBI-compliant structures</span>
-                <span className="h-1 w-1 rounded-full bg-white/40 self-center" />
-                <span>Expert asset management</span>
-                <span className="h-1 w-1 rounded-full bg-white/40 self-center" />
-                <span>Rental + appreciation upside</span>
-              </div>
-            </div>
-
-            {/* Right: Main property image */}
-            <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
+              className="absolute -right-10 top-10 hidden h-[420px] w-[420px] opacity-70 animate-float lg:block"
+              style={{ animationDelay: "0.2s" }}
+            >
               <Image
-                src="/property.jpg"
-                alt="Featured India property"
-                width={1000}
-                height={800}
-                className="object-cover rounded-xl shadow-xl"
+                src="/bg-vectors-hero-main.svg"
+                alt="Decorative vector background"
+                className="object-contain drop-shadow-[0_0_40px_rgba(0,0,0,0.6)]"
+                width={420}
+                height={420}
+              />
+            </div>
+
+            <div
+              className="absolute bottom-10 right-[8%] hidden h-[260px] w-[520px] opacity-60 animate-fade-in-up lg:block"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <Image
+                src="/bg-vectors-hero-city.svg"
+                alt="City skyline"
+                width={520}
+                height={260}
+                className="object-cover mix-blend-screen"
+              />
+            </div>
+
+            <div className="absolute bottom-16 left-4 hidden h-[160px] w-[220px] opacity-70 animate-slide-in-left md:left-10 md:block">
+              <Image
+                src="/bg-vectors-hero-left-shapes.svg"
+                alt="Abstract shapes"
+                className="object-contain"
+                width={220}
+                height={160}
               />
             </div>
           </div>
-        </section>
+        </div>
 
-        <TrustSection />
-        <DubaiRealEstateSection />
-        <WhyBaytukumSection />
-        <section id="how-it-works">
-          <HowItWorksSection />
-        </section>
-        <YouTubeVideosSection />
-        <YouTubeShortsSection />
-        <BlogsSection />
-        <FeaturedProjectsSection />
-        <ExpertPanelSection />
-        <InvestorsResourcesSection />
-        <TestimonialsSection />
-        <MeetVisionarySection />
-        <ContactSection />
-      </main>
+        <div className="container relative z-10 flex flex-col items-center gap-10 py-16 md:py-24 lg:flex-row lg:py-28">
+          {/* Left: Text */}
+          <div className="max-w-2xl animate-fade-in-up space-y-6 lg:w-1/2">
+            <h1
+              className="animate-fade-in-up text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <span className="block">Start Building</span>
+              <span className="block">
+                <span className="text-[0.7em]">W</span>ealth{" "}
+                <span className="text-[0.7em]">W</span>ith
+              </span>
+              <span className="block bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent text-accent">
+                MiniLands
+              </span>
+            </h1>
 
-      <Footer />
-    </div>
+            <p
+              className="animate-fade-in-up text-lg font-medium text-accent md:text-2xl"
+              style={{ animationDelay: "0.4s" }}
+            >
+              India&apos;s Most Trusted Fractional Ownership Platform
+            </p>
+
+            <p
+              className="animate-fade-in-up max-w-xl text-sm text-white/80 md:text-base"
+              style={{ animationDelay: "0.6s" }}
+            >
+              Invest from as low as Rs. 1L | Easy Real Estate Access | Expert Managed |
+              Smart Returns | Start Small, Grow Big
+            </p>
+
+            <div
+              className="animate-fade-in-up flex flex-wrap items-center gap-4 pt-2"
+              style={{ animationDelay: "0.8s" }}
+            >
+              <Link
+                href="/properties"
+                className="shine-button hover:scale-105"
+              >
+                Explore Projects
+              </Link>
+              <Link
+                href="/#how-it-works"
+                className="text-sm font-medium text-white/80 underline-offset-4 transition-colors hover:text-accent hover:underline"
+              >
+                See how it works
+              </Link>
+            </div>
+
+            <div
+              className="animate-fade-in-up flex flex-nowrap gap-4 pt-4 text-xs text-white/60 md:text-sm"
+              style={{ animationDelay: "1s" }}
+            >
+              <span className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                SEBI-Compliant Structures
+              </span>
+              <span className="h-1 w-1 self-center rounded-full bg-white/40" />
+              <span className="flex items-center gap-2">
+                <span
+                  className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent"
+                  style={{ animationDelay: "0.3s" }}
+                />
+                Expert Asset Management
+              </span>
+              <span className="h-1 w-1 self-center rounded-full bg-white/40" />
+              <span className="flex items-center gap-2">
+                <span
+                  className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent"
+                  style={{ animationDelay: "0.6s" }}
+                />
+                Upside Appreciation + Rental
+              </span>
+            </div>
+          </div>
+
+          {/* Right: Main property image */}
+          <div className="mt-10 flex justify-center animate-slide-in-right lg:mt-0 lg:w-1/2">
+            <div className="group relative">
+              <div className="absolute -inset-1 animate-pulse-slow rounded-xl bg-gradient-to-r from-accent/60 to-sky-400/30 opacity-60 blur-lg transition-opacity group-hover:opacity-90" />
+              <Image
+                src="/mail.google.jpg"
+                alt="Featured India property"
+                width={1000}
+                height={800}
+                className="relative transform rounded-xl border border-white/10 object-cover shadow-panel transition-transform group-hover:scale-105"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <TrustSection />
+      <DubaiRealEstateSection />
+      <WhyBaytukumSection />
+      <HowItWorksSection />
+      <YouTubeVideosSection />
+      <YouTubeShortsSection />
+      <BlogsSection />
+      <FeaturedProjectsSection />
+      <ExpertPanelSection />
+      <InvestorsResourcesSection />
+      <TestimonialsSection />
+      <MeetVisionarySection />
+      <AppDownloadSection />
+      <ContactSection />
+    </>
   );
 }

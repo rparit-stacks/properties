@@ -62,102 +62,75 @@ export default function TestimonialsSection() {
   const prevTestimonial = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
-    );
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  // Auto-advance testimonials
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isAnimating) {
-        nextTestimonial();
-      }
+      if (!isAnimating) nextTestimonial();
     }, 6000);
-
     return () => clearInterval(interval);
   }, [isAnimating]);
 
-  const currentTestimonialData = testimonials[currentTestimonial];
+  const current = testimonials[currentTestimonial];
 
   return (
-    <section className="py-16 bg-background border-t border-white/20">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-accent font-semibold text-lg mb-2">Testimonials</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Hear from Our Satisfied Investors
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
+    <section className="section-shine py-16 md:py-20">
+      <div className="container relative mx-auto max-w-6xl px-4">
+        <div className="mx-auto mb-12 max-w-2xl text-center">
+          <span className="eyebrow">Testimonials</span>
+          <h2 className="section-heading mt-5">Hear from Our Satisfied Investors</h2>
+          <div className="gold-rule mt-6" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Main Testimonial Card */}
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl border border-gray-200 relative overflow-hidden">
-            {/* Background Quote */}
-            <Quote className="absolute top-6 right-6 w-16 h-16 text-accent/10" />
+        <div className="relative mx-auto max-w-4xl">
+          <div className="glass-panel relative overflow-hidden p-8 shadow-panel md:p-12">
+            <Quote className="absolute right-6 top-6 h-16 w-16 text-accent/20" />
 
-            {/* Testimonial Content */}
             <div
               key={currentTestimonial}
-              className={`transition-all duration-500 ease-in-out ${isAnimating
-                ? "opacity-0 transform translate-y-4"
-                : "opacity-100 transform translate-y-0"
-                }`}
+              className={`transition-all duration-500 ease-in-out ${
+                isAnimating ? "translate-y-4 opacity-0" : "translate-y-0 opacity-100"
+              }`}
             >
-              {/* Profile Section */}
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
-                <div className="relative w-20 h-20 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-                  <Image
-                    src={currentTestimonialData.image || "/placeholder.svg"}
-                    alt={currentTestimonialData.name}
-                    fill
-                    className="object-cover"
-                  />
+              <div className="mb-8 flex flex-col items-center gap-6 md:flex-row md:items-start">
+                <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-full border border-accent/30 bg-slate-800">
+                  <Image src={current.image} alt={current.name} fill className="object-cover" />
                 </div>
                 <div className="text-center md:text-left">
-                  <h4 className="font-bold text-gray-900 text-xl mb-1">
-                    {currentTestimonialData.name}
-                  </h4>
-                  <p className="text-gray-600 mb-3">
-                    {currentTestimonialData.role}
-                  </p>
-                  <div className="flex items-center justify-center md:justify-start gap-1">
-                    {[...Array(currentTestimonialData.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                      />
+                  <h4 className="mb-1 text-xl font-bold text-white">{current.name}</h4>
+                  <p className="mb-3 text-slate-400">{current.role}</p>
+                  <div className="flex items-center justify-center gap-1 md:justify-start">
+                    {[...Array(current.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-accent text-accent" />
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* Testimonial Text */}
-              <blockquote className="text-gray-700 text-lg leading-relaxed text-center md:text-left italic">
-                "{currentTestimonialData.text}"
+              <blockquote className="text-center text-lg italic leading-relaxed text-slate-300 md:text-left">
+                &ldquo;{current.text}&rdquo;
               </blockquote>
             </div>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="mt-8 flex items-center justify-center gap-4">
             <Button
               onClick={prevTestimonial}
               disabled={isAnimating}
               variant="outline"
               size="icon"
-              className="w-12 h-12 rounded-full bg-background border-white/20 text-white hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 disabled:opacity-50"
+              className="h-12 w-12 rounded-full border-white/20 bg-slate-950/60 text-white hover:border-accent hover:bg-accent hover:text-slate-950"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="h-6 w-6" />
             </Button>
 
-            {/* Progress Indicators */}
             <div className="flex gap-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
+                  aria-label={`Go to testimonial ${index + 1}`}
                   onClick={() => {
                     if (!isAnimating && index !== currentTestimonial) {
                       setIsAnimating(true);
@@ -165,10 +138,11 @@ export default function TestimonialsSection() {
                       setTimeout(() => setIsAnimating(false), 500);
                     }
                   }}
-                  className={`h-2 rounded-full transition-all duration-300 ${index === currentTestimonial
-                    ? "bg-accent w-8"
-                    : "bg-white/30 w-2 hover:bg-white/50"
-                    }`}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentTestimonial
+                      ? "w-8 bg-accent"
+                      : "w-2 bg-white/30 hover:bg-white/50"
+                  }`}
                 />
               ))}
             </div>
@@ -178,15 +152,14 @@ export default function TestimonialsSection() {
               disabled={isAnimating}
               variant="outline"
               size="icon"
-              className="w-12 h-12 rounded-full bg-background border-white/20 text-white hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 disabled:opacity-50"
+              className="h-12 w-12 rounded-full border-white/20 bg-slate-950/60 text-white hover:border-accent hover:bg-accent hover:text-slate-950"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="h-6 w-6" />
             </Button>
           </div>
 
-          {/* Testimonial Counter */}
-          <div className="text-center mt-6">
-            <p className="text-white/70 text-sm">
+          <div className="mt-6 text-center">
+            <p className="text-sm text-slate-500">
               {currentTestimonial + 1} of {testimonials.length}
             </p>
           </div>

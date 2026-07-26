@@ -1,164 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
-
-interface Property {
-  id: number;
-  name: string;
-  location: string;
-  projectedReturns: string;
-  minInvestment: string;
-  type: "residential" | "commercial";
-  image: string;
-  rate: string;
-  plotSizes: string[];
-  amenities: string[];
-  nearbyPlaces: string[];
-  promotedBy: string;
-  status: "Launched" | "Upcoming";
-}
+import {
+  fallbackProperties,
+  fetchWebsitePropertiesClient,
+  type Property,
+} from "@/lib/property-api";
+import { getPlayStoreUrl } from "@/lib/site-config";
 
 export default function FeaturedProjectsSection() {
-  const [activeTab, setActiveTab] = useState("residential");
+  const [activeTab, setActiveTab] = useState<"residential" | "commercial">("commercial");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [properties, setProperties] = useState<Property[]>(fallbackProperties);
+  const playStoreUrl = getPlayStoreUrl();
 
-  const properties: Property[] = [
-    {
-      id: 1,
-      name: "Shaswat Corridor",
-      location: "Ujjain Road",
-      projectedReturns: "8.55%",
-      minInvestment: "₹24.2 Lakhs",
-      type: "residential",
-      image: "/property.jpg",
-      rate: "₹3,451 per sq.ft",
-      plotSizes: [
-        "20×40 (800 sq.ft)",
-        "20×35 (700 sq.ft)",
-        "15×50 (750 sq.ft)",
-      ],
-      amenities: [
-        "Garden",
-        "Cement Road",
-        "24/7 Security",
-        "Underground Electric",
-      ],
-      nearbyPlaces: [
-        "New Prestige College - 2min",
-        "Aurobindo Hospital - 8min",
-        "Airport - 25min",
-        "Rajwada - 40min",
-      ],
-      promotedBy: "LASAR REAL ESTATE VENTURE PRIVATE LIMITED",
-      status: "Launched",
-    },
-    {
-      id: 2,
-      name: "Ruchi Town",
-      location: "Ujjain Road",
-      projectedReturns: "8.66%",
-      minInvestment: "₹26.8 Lakhs",
-      type: "residential",
-      image: "/property.jpg",
-      rate: "₹3,351 per sq.ft",
-      plotSizes: [
-        "30×50 (1,500 sq.ft)",
-        "20×50 (1,000 sq.ft)",
-        "20×40 (800 sq.ft)",
-      ],
-      amenities: [
-        "Club House",
-        "Swimming Pool",
-        "Temple",
-        "Garden",
-        "Secured Campus",
-      ],
-      nearbyPlaces: [
-        "Aurobindo Hospital - 15min",
-        "New Prestige College - 5min",
-        "Airport - 35min",
-        "Rajwada - 25min",
-      ],
-      promotedBy: "Lasar Real Estate Private Limited",
-      status: "Launched",
-    },
-    {
-      id: 3,
-      name: "Treasure Park",
-      location: "Ujjain Road",
-      projectedReturns: "9.12%",
-      minInvestment: "₹43 Lakhs",
-      type: "commercial",
-      image: "/property.jpg",
-      rate: "₹4,300 per sq.ft",
-      plotSizes: [
-        "30×40 (1,200 sq.ft)",
-        "20×50 (1,000 sq.ft)",
-        "25×50 (1,250 sq.ft)",
-      ],
-      amenities: [
-        "Garden",
-        "Cricket Stadium",
-        "Basketball Court",
-        "Security",
-        "Vehicle Charging Point",
-      ],
-      nearbyPlaces: [
-        "New Prestige College - 2min",
-        "Aurobindo Hospital - 8min",
-        "Airport - 25min",
-        "Rajwada - 35min",
-      ],
-      promotedBy: "Lasar Real Estate Private Limited",
-      status: "Upcoming",
-    },
-    {
-      id: 4,
-      name: "Treasure Palms",
-      location: "Ujjain Road",
-      projectedReturns: "8.89%",
-      minInvestment: "₹36 Lakhs",
-      type: "residential",
-      image: "/property.jpg",
-      rate: "₹3,600 per sq.ft",
-      plotSizes: [
-        "20×50 (1,000 sq.ft)",
-        "30×50 (1,500 sq.ft)",
-        "60×50 (3,000 sq.ft)",
-      ],
-      amenities: ["Proposed Club House", "3 Side Open Plots"],
-      nearbyPlaces: [
-        "Aurobindo Hospital - 7min",
-        "Super Corridor - 7min",
-        "Proposed Ahilya Path - 2min",
-      ],
-      promotedBy: "Lasar Real Estate Private Limited",
-      status: "Upcoming",
-    },
-    {
-      id: 5,
-      name: "Ricon City",
-      location: "Khandwa Road",
-      projectedReturns: "7.95%",
-      minInvestment: "₹27 Lakhs",
-      type: "commercial",
-      image: "/property.jpg",
-      rate: "₹2,700 per sq.ft",
-      plotSizes: [
-        "20×50 (1,000 sq.ft)",
-        "30×50 (1,500 sq.ft)",
-        "42×50 (2,100 sq.ft)",
-      ],
-      amenities: ["Garden", "Temple", "CCTV Covered Campus", "Kids Play Area"],
-      nearbyPlaces: ["IIT Indore - 15min", "Chokhi Dhani - 7min"],
-      promotedBy: "Lasar Real Estate Private Limited",
-      status: "Launched",
-    },
-  ];
+  useEffect(() => {
+    let cancelled = false;
+    fetchWebsitePropertiesClient().then((list) => {
+      if (!cancelled) setProperties(list);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const filteredProperties = properties.filter(
     (property) => property.type === activeTab,
@@ -193,24 +62,21 @@ export default function FeaturedProjectsSection() {
   );
 
   return (
-    <section className="py-16 bg-background border-t border-white/20 overflow-hidden">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-12 px-4">
-          <p className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Featured Projects
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
+    <section className="section-shine overflow-hidden py-16 md:py-20">
+      <div className="container relative mx-auto max-w-6xl px-4">
+        <div className="mb-12 text-center">
+          <span className="eyebrow">Featured Projects</span>
+          <h2 className="section-heading mt-5">
             Discover Our <span className="text-accent">Featured Projects</span>
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto text-sm md:text-base mb-6">
+          <p className="section-subheading mx-auto mt-4 max-w-2xl">
             Curated residential and commercial opportunities with strong
             projected returns, trusted developers, and strategic locations.
           </p>
-          <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
+          <div className="gold-rule mb-8 mt-6" />
 
           {/* Tab Buttons */}
-          <div className="flex justify-center gap-4 mb-8">
+          <div className="mb-8 flex justify-center gap-4">
             <Button
               onClick={() => handleTabChange("residential")}
               disabled={isAnimating}
@@ -270,8 +136,8 @@ export default function FeaturedProjectsSection() {
             >
               {visibleProperties.map((property, index) => (
                 <div
-                  key={property.id}
-                  className="bg-white/8 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 border border-white/8 hover:border-white/15"
+                  key={`${property.id}-${property.name}`}
+                  className="glass-panel overflow-hidden transition-all duration-500 hover:border-accent/30 hover:shadow-glow"
                   style={{
                     animationDelay: `${index * 150}ms`,
                   }}
@@ -289,18 +155,7 @@ export default function FeaturedProjectsSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
-                    {/* Status and Returns Badges */}
-                    <div className="absolute top-4 left-4 flex flex-col gap-2 items-start">
-                      <span
-                        className={`px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide backdrop-blur-md border ${
-                          property.status === "Launched"
-                            ? "bg-green-500/90 text-black border-green-300"
-                            : "bg-yellow-400/90 text-black border-yellow-200"
-                        }`}
-                      >
-                        {property.status}
-                      </span>
-                    </div>
+                    {/* Returns Badge */}
                     <div className="absolute top-4 right-4">
                       <span className="bg-white/20 text-white px-3 py-1.5 rounded-lg text-sm font-medium backdrop-blur-md border border-white/10">
                         {property.projectedReturns}
@@ -342,9 +197,11 @@ export default function FeaturedProjectsSection() {
                         </span>
                       </div>
                       <div className="flex justify-between items-center py-1">
-                        <span className="text-white/60 text-sm">Rate</span>
+                        <span className="text-white/60 text-sm">
+                          Overall Project Cost
+                        </span>
                         <span className="text-white font-medium text-sm">
-                          {property.rate}
+                          {property.overallProjectCost}
                         </span>
                       </div>
                     </div>
@@ -357,14 +214,22 @@ export default function FeaturedProjectsSection() {
                           : "Commercial"}
                       </span>
                       <span className="text-white/40 text-xs">
-                        {property.plotSizes.length} plot size
-                        {property.plotSizes.length !== 1 ? "s" : ""}
+                        {property.totalToken} Tokens
                       </span>
                     </div>
 
-                    {/* View Details Button - Minimal */}
-                    <Button className="w-full bg-white/10 text-white hover:bg-white/15 font-medium transition-all duration-300 border border-white/10 hover:border-white/20 rounded-lg py-2">
-                      View Details
+                    {/* View / Invest opens the Android app */}
+                    <Button
+                      asChild
+                      className="w-full rounded-lg border border-accent/25 bg-accent/15 py-2 font-medium text-accent transition-all duration-300 hover:bg-accent hover:text-slate-950"
+                    >
+                      <Link
+                        href={playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View &amp; Invest in App
+                      </Link>
                     </Button>
                   </div>
                 </div>

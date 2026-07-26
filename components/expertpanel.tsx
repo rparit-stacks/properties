@@ -3,89 +3,99 @@ import Image from "next/image";
 export default function ExpertPanelSection() {
   const experts = [
     {
-      name: "Dr. Sarah Al-Mansouri",
-      title: "Real Estate Investment Strategist",
-      company: "Dubai Properties Group",
-      image: "https://images.pexels.com/photos/1181516/pexels-photo-1181516.jpeg",
-      bio: "With over 15 years in Middle Eastern real estate markets, Dr. Al-Mansouri specializes in property investment strategies and market analysis.",
+      name: "Sanjay Saxena",
+      title: "Digital Finance Advisor & MSME Advocate",
+      company: "Visionary leader in India’s digital payments ecosystem",
+      image: "/expert/sanjay.png",
+      bio: "Chartered Accountant and financial executive who helped shape India’s digital payments landscape through leadership roles at NPCI, UIDAI and Paytm Payments Bank.",
       expertise: [
-        "Market Analysis",
-        "Investment Strategy",
-        "Property Valuation",
+        "Fintech Leadership",
+        "Digital Payments Innovation",
+        "MSME Growth & Policy",
       ],
     },
     {
-      name: "Ahmed Hassan",
-      title: "Fintech Innovation Director",
-      company: "Emirates Financial Services",
-      image: "https://images.pexels.com/photos/1181605/pexels-photo-1181605.jpeg",
-      bio: "A pioneer in financial technology solutions, Ahmed has led digital transformation initiatives across the MENA region's banking sector.",
-      expertise: ["Fintech Solutions", "Digital Banking", "Crowdfunding"],
+      name: "Priyanshu Khare",
+      title: "High Court Advocate – Property & Land Disputes",
+      company: "High Court Advocate – Civil & Property Matters",
+      image: "/expert/priyanshu.png",
+      bio: "Experienced High Court Advocate specialising in land and property disputes, providing clear guidance on complex title and ownership issues.",
+      expertise: [
+        "Property & Land Disputes",
+        "Civil Litigation",
+        "Title & Ownership Matters",
+      ],
     },
     {
-      name: "Marina Rodriguez",
-      title: "Regulatory Affairs Specialist",
-      company: "UAE Securities Commission",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
-      bio: "Marina ensures compliance and regulatory excellence in emerging financial products, with deep expertise in crowdfunding regulations.",
-      expertise: ["Regulatory Compliance", "Securities Law", "Risk Management"],
+      name: "Shashikant Lasar",
+      title: "Real Estate Advisor & Asset Management Expert",
+      company: "Real Estate Advisory & Asset Management – Indore",
+      image: "/expert/Shashikant%20.png",
+      bio: "Seasoned Indore-based real estate professional helping clients with property advisory, asset management and portfolio-driven real estate solutions.",
+      expertise: [
+        "Real Estate Advisory",
+        "Asset & Portfolio Management",
+        "Investment Planning",
+      ],
     },
     {
-      name: "Khalid Al-Rashid",
-      title: "Blockchain Technology Advisor",
-      company: "Emirates Blockchain Consortium",
-      image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg",
-      bio: "Leading blockchain integration in real estate transactions, Khalid brings cutting-edge technology solutions to traditional property markets.",
-      expertise: ["Blockchain Technology", "Smart Contracts", "Digital Assets"],
+      name: "Rohit Parit",
+      title: "Technology Consultant & Backend Systems Architect",
+      company: "Java & Spring Boot | Scalable Backend Systems",
+      image: "/expert/rohit.png",
+      bio: "Backend systems architect focused on secure, scalable Java & Spring Boot platforms for fintech, payments and real-time applications.",
+      expertise: [
+        "Java & Spring Boot Architecture",
+        "Fintech & Payment Systems",
+        "Scalable Backend & Security (JWT, RBAC, Kafka)",
+      ],
     },
   ];
 
   return (
-    <section className="py-16 bg-background border-t border-white/20">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our Expert Panel
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            Meet the industry leaders and specialists who guide MiniLands'
+    <section className="section-shine py-16 md:py-20">
+      <div className="container relative mx-auto max-w-7xl px-4">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <span className="eyebrow">Advisors</span>
+          <h2 className="section-heading mt-5">Our Expert Panel</h2>
+          <div className="gold-rule mt-6 mb-6" />
+          <p className="section-subheading">
+            Meet the industry leaders and specialists who guide MiniLands&apos;
             vision and ensure excellence in real estate crowdfunding innovation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {experts.map((expert, index) => (
             <div key={index} className="group">
-              <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-accent/50 transition-all duration-300 hover:bg-white/10 h-full">
+              <div className="glass-panel h-full p-6 transition-all duration-300 hover:border-accent/40 hover:shadow-glow">
                 <div className="flex flex-col items-center text-center">
-                  <div className="relative mb-6">
+                  <div className="relative mb-6 h-32 w-32 overflow-hidden rounded-full border-2 border-accent/30 shadow-lg transition-colors duration-300 group-hover:border-accent md:h-36 md:w-36">
                     <Image
                       src={expert.image}
                       alt={expert.name}
-                      width={120}
-                      height={120}
-                      className="rounded-full border-2 border-accent/30 group-hover:border-accent transition-colors duration-300"
+                      fill
+                      className="object-cover"
                     />
                   </div>
 
-                  <h3 className="text-white font-semibold text-lg mb-1">
+                  <h3 className="mb-1 text-lg font-semibold text-white">
                     {expert.name}
                   </h3>
-                  <p className="text-accent font-medium text-sm mb-1">
+                  <p className="mb-1 text-sm font-medium text-accent">
                     {expert.title}
                   </p>
-                  <p className="text-gray-400 text-xs mb-4">{expert.company}</p>
+                  <p className="mb-4 text-xs text-slate-400">{expert.company}</p>
 
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                  <p className="mb-4 text-sm leading-relaxed text-slate-300">
                     {expert.bio}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 justify-center">
+                  <div className="flex flex-wrap justify-center gap-2">
                     {expert.expertise.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full border border-accent/30"
+                        className="rounded-full border border-accent/30 bg-accent/15 px-3 py-1 text-xs text-accent"
                       >
                         {skill}
                       </span>
@@ -98,11 +108,11 @@ export default function ExpertPanelSection() {
         </div>
 
         <div className="text-center">
-          <div className="bg-white/5 rounded-2xl p-8 border border-white/10 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
+          <div className="glass-panel mx-auto max-w-4xl p-8 shadow-panel">
+            <h3 className="mb-4 text-2xl font-bold text-white">
               Collective Expertise
             </h3>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+            <p className="mb-6 text-lg leading-relaxed text-slate-300">
               Our expert panel brings together over 60 years of combined
               experience in real estate, fintech, regulatory compliance, and
               blockchain technology. Together, they ensure MiniLands delivers
