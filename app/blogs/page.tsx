@@ -22,7 +22,9 @@ export default function BlogsListingPage() {
             {blogPosts.map((post) => (
               <Link
                 key={post.slug}
-                href={`/blogs/${post.slug}`}
+                href={post.externalUrl || `/blogs/${post.slug}`}
+                target={post.externalUrl ? "_blank" : undefined}
+                rel={post.externalUrl ? "noopener noreferrer" : undefined}
                 className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-300 group"
               >
                 <div className="relative h-56">

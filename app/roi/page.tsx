@@ -1,14 +1,10 @@
 "use client";
 import { useState } from "react";
 import {
-  ArrowLeft,
-  Calculator,
-  TrendingUp,
   PieChart,
   BarChart3,
+  TrendingUp,
 } from "lucide-react";
-
-import Link from "next/link";
 
 export default function ROICalculatorPage() {
   const [investmentAmount, setInvestmentAmount] = useState(2000000);
@@ -40,34 +36,9 @@ export default function ROICalculatorPage() {
   const avgReturn = (totalROI / investmentAmount / 5) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
-      {/* Header */}
-      <header className="bg-white/10 backdrop-blur-md border-b border-white/20 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Link href={"/"}>
-                <ArrowLeft className="w-6 h-6 text-white" />
-              </Link>
-              <div className="flex items-center gap-3">
-                <Calculator className="w-8 h-8 text-blue-400" />
-                <h1 className="text-2xl font-bold text-white">
-                  ROI Calculator
-                </h1>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center gap-6 text-white/80">
-              <span className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5" />
-                Investment Tools
-              </span>
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen bg-transparent">
       {/* Hero Section */}
-      <section className="py-16 px-4">
+      <section className="section-shine px-4 py-16">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center mb-6">
             <div className="p-4 bg-blue-500/20 rounded-full">
@@ -308,18 +279,14 @@ export default function ROICalculatorPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-black/20 border-t border-white/10 py-8">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-300 mb-2">
+      <section className="py-8 px-4 border-t border-white/10">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-300">
             This calculator provides estimates based on the inputs provided.
             Actual returns may vary based on market conditions.
           </p>
-          <p className="text-gray-400 text-sm">
-            © 2025 Real Estate Investment Calculator. All rights reserved.
-          </p>
         </div>
-      </footer>
+      </section>
 
       <style jsx>{`
         .slider-green::-webkit-slider-thumb {

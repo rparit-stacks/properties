@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "@/components/blogs";
@@ -14,6 +14,10 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   if (!post) {
     return notFound();
+  }
+
+  if (post.externalUrl) {
+    return redirect(post.externalUrl);
   }
 
   return (

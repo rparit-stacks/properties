@@ -60,38 +60,32 @@ export default function WhyBaytukumSection() {
   ];
 
   return (
-    <section className="py-16 bg-background border-t border-white/20">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Why Invest with MiniLands?
-          </h2>
-          <p className="text-xl text-accent font-medium mb-4">
-            Secure, Transparent, and Professionally Managed for Steady Growth.
+    <section className="section-shine py-16 md:py-20">
+      <div className="container relative mx-auto max-w-6xl px-4">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <span className="eyebrow">Why MiniLands</span>
+          <h2 className="section-heading mt-5">Why Invest with MiniLands?</h2>
+          <p className="mt-4 text-lg font-medium text-accent">
+            Secure, transparent, and professionally managed for steady growth.
           </p>
-          <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
-          <p className="text-white text-lg max-w-4xl mx-auto leading-relaxed">
+          <div className="gold-rule mt-6" />
+          <p className="section-subheading mt-6">
             Step into India’s booming real estate market with fractional
-            ownership—affordable, hassle-free, and high-return. Minilands makes
-            it possible for anyone to start small and grow big.
+            ownership—affordable, hassle-free, and built for long-term wealth.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {advantages.map((advantage, index) => (
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {advantages.map((advantage) => (
             <div
-              key={index}
-              className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+              key={advantage.title}
+              className="glass-panel group p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-glow"
             >
-              <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center mb-4">
-                <advantage.icon className="w-6 h-6 text-accent" />
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/15 text-accent transition group-hover:bg-accent group-hover:text-slate-950">
+                <advantage.icon className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                {advantage.title}
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {advantage.description}
-              </p>
+              <h3 className="mb-2 text-lg font-semibold text-white">{advantage.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-400">{advantage.description}</p>
             </div>
           ))}
         </div>

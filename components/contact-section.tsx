@@ -3,191 +3,113 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
+const fieldClass =
+  "border-white/15 bg-white/[0.04] text-white placeholder:text-slate-500 focus-visible:ring-accent";
+
 export default function ContactSection() {
   return (
-    <section
-      id="contact"
-      className="py-16 bg-background border-t border-white/20"
-    >
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Contact Us
-          </h2>
-          <p className="text-lg text-muted-foreground mb-4">
+    <section id="contact" className="section-shine py-16 md:py-20">
+      <div className="container relative mx-auto max-w-6xl px-4">
+        <div className="mx-auto mb-12 max-w-2xl text-center">
+          <span className="eyebrow">Support</span>
+          <h2 className="section-heading mt-5">Contact Us</h2>
+          <p className="section-subheading mt-4">
             Get in touch with our investment experts
           </p>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
+          <div className="gold-rule mt-6" />
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-10 lg:grid-cols-2">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-6">
-                Get in Touch
-              </h3>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Ready to start your real estate investment journey? Our team of
-                experts is here to guide you through every step of the process.
-                Contact us today for a free consultation.
+              <h3 className="mb-4 text-2xl font-semibold text-white">Get in Touch</h3>
+              <p className="text-lg leading-relaxed text-slate-300">
+                Ready to start your real estate investment journey? Our team is here to
+                guide you through every step. Contact us today for a free consultation.
               </p>
             </div>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-accent" />
+            <div className="space-y-5">
+              {[
+                { icon: Phone, title: "Phone", body: "+91 9294553783" },
+                { icon: Mail, title: "Email", body: "info@minilands.in" },
+                {
+                  icon: MapPin,
+                  title: "Address",
+                  body: "401, Heritage Building, 582, MG Road, Opposite Hukumchand Ghanta Ghar, New Palasia, Indore, Madhya Pradesh, 452001, India",
+                },
+                {
+                  icon: Clock,
+                  title: "Business Hours",
+                  body: "10:00 AM – 7:00 PM (Monday – Saturday)",
+                },
+              ].map(({ icon: Icon, title, body }) => (
+                <div key={title} className="glass-panel flex items-start gap-4 p-4">
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-accent/15">
+                    <Icon className="h-5 w-5 text-accent" />
+                  </div>
+                  <div>
+                    <h4 className="mb-1 font-semibold text-white">{title}</h4>
+                    <p className="text-sm leading-relaxed text-slate-300">{body}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Phone</h4>
-                  <p className="text-gray-300">+91 9294553783</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Email</h4>
-                  <p className="text-gray-300">info@minilands.in</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Address</h4>
-                  <p className="text-gray-300">
-                    401 , Heritage Building , 582 , MG Road , Oppsite Hukumchand
-                    Ghanta Ghar ,New Palasia , Indore , Madhya Pradesh ,452001
-                    <br />
-                    India
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">
-                    Business Hours
-                  </h4>
-                  <p className="text-gray-300">
-                    10:00 AM – 7:00 PM ( Monday – Saturday )
-                    <br />
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white rounded-2xl p-8 border border-gray-200">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-              Send us a Message
-            </h3>
+          <div className="glass-panel p-8 shadow-panel">
+            <h3 className="mb-6 text-2xl font-semibold text-white">Send us a Message</h3>
 
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form className="space-y-5">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
+                  <label htmlFor="firstName" className="mb-2 block text-sm font-medium text-slate-300">
                     First Name
                   </label>
-                  <Input
-                    id="firstName"
-                    type="text"
-                    placeholder="Enter your first name"
-                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-accent focus:border-accent"
-                  />
+                  <Input id="firstName" type="text" placeholder="Enter your first name" className={fieldClass} />
                 </div>
                 <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
+                  <label htmlFor="lastName" className="mb-2 block text-sm font-medium text-slate-300">
                     Last Name
                   </label>
-                  <Input
-                    id="lastName"
-                    type="text"
-                    placeholder="Enter your last name"
-                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-accent focus:border-accent"
-                  />
+                  <Input id="lastName" type="text" placeholder="Enter your last name" className={fieldClass} />
                 </div>
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-300">
                   Email Address
                 </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-accent focus:border-accent"
-                />
+                <Input id="email" type="email" placeholder="Enter your email address" className={fieldClass} />
               </div>
 
               <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
+                <label htmlFor="phone" className="mb-2 block text-sm font-medium text-slate-300">
                   Phone Number
                 </label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  placeholder="Enter your phone number"
-                  className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-accent focus:border-accent"
-                />
+                <Input id="phone" type="tel" placeholder="Enter your phone number" className={fieldClass} />
               </div>
 
               <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
+                <label htmlFor="subject" className="mb-2 block text-sm font-medium text-slate-300">
                   Subject
                 </label>
-                <Input
-                  id="subject"
-                  type="text"
-                  placeholder="What's this about?"
-                  className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-accent focus:border-accent"
-                />
+                <Input id="subject" type="text" placeholder="What's this about?" className={fieldClass} />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-300">
                   Message
                 </label>
                 <Textarea
                   id="message"
                   rows={4}
                   placeholder="Tell us more about your investment goals..."
-                  className="bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-accent focus:border-accent"
+                  className={fieldClass}
                 />
               </div>
 
-              <Button className="w-full bg-accent text-background hover:bg-accent/90 font-semibold py-3">
-                Send Message
-              </Button>
+              <Button className="shine-button w-full py-3">Send Message</Button>
             </form>
           </div>
         </div>

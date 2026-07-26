@@ -56,16 +56,15 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section className="py-16 bg-background border-t border-white/20 relative overflow-hidden">
-      <div className="container max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            How does MiniLands work?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-4">
-            High-Quality, Vetted Assets
+    <section id="how-it-works" className="section-shine relative overflow-hidden py-16 md:py-20">
+      <div className="container relative mx-auto max-w-6xl px-4">
+        <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
+          <span className="eyebrow">Process</span>
+          <h2 className="section-heading mt-5">How does MiniLands work?</h2>
+          <p className="section-subheading mt-4">
+            High-quality, vetted assets with end-to-end support
           </p>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
+          <div className="gold-rule mt-6" />
         </div>
 
         <div className="relative max-w-4xl mx-auto space-y-12 md:space-y-24">
@@ -76,18 +75,11 @@ export default function HowItWorksSection() {
           >
             <path
               d="M420 50 Q620 150 420 250 Q220 350 488 450 Q620 550 420 650 Q220 750 420 850 Q620 950 420 1050 Q220 1150 420 1250 Q620 1350 420 1450 Q220 1550 420 1650"
-              stroke="url(#gradient)"
-              strokeWidth="2"
+              stroke="#FECC57"
+              strokeWidth="3"
               fill="none"
-              className="opacity-60"
+              className="opacity-80"
             />
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#fecc57" />
-                <stop offset="50%" stopColor="#fecc57" />
-                <stop offset="100%" stopColor="#fecc57" />
-              </linearGradient>
-            </defs>
           </svg>
 
           {/* Start / End dots only on md+ */}
@@ -115,16 +107,16 @@ export default function HowItWorksSection() {
                     </div>
 
                     {/* Content card */}
-                    <div className="flex-1 rounded-xl border border-gray-200 bg-white p-4 shadow-xl md:p-6">
+                    <div className="glass-panel flex-1 p-4 shadow-panel md:p-6">
                       <div className="flex items-start gap-3 md:gap-4">
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-background md:h-12 md:w-12">
-                          <step.icon className="w-6 h-6 text-accent" />
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-accent/15 md:h-12 md:w-12">
+                          <step.icon className="h-6 w-6 text-accent" />
                         </div>
                         <div>
-                          <h3 className="mb-1 text-base font-semibold text-gray-900 md:text-xl">
+                          <h3 className="mb-1 text-base font-semibold text-white md:text-xl">
                             {step.title}
                           </h3>
-                          <p className="text-sm leading-relaxed text-gray-600 md:text-base">
+                          <p className="text-sm leading-relaxed text-slate-400 md:text-base">
                             {step.description}
                           </p>
                         </div>
@@ -139,7 +131,7 @@ export default function HowItWorksSection() {
 
         <div className="text-center mt-16">
           <Link href="/#contact">
-            <Button className="bg-accent text-background hover:bg-accent/90 font-semibold px-8 py-3 text-lg">
+            <Button className="shine-button px-8 py-3 text-lg">
               Sign Up for Free Consultation
             </Button>
           </Link>

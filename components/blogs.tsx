@@ -9,63 +9,69 @@ export type BlogPost = {
   author: string;
   date: string;
   content: string;
+  externalUrl?: string;
 };
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "future-of-real-estate-crowdfunding-uae",
-    title: "The Future of Real Estate Crowdfunding in the UAE",
+    slug: "fractional-investing-gen-z-real-estate-owners",
+    title: "Fractional investing is turning Gen Z into early real estate owners, says Sourish Pal of Client Associates",
     excerpt:
-      "Exploring how technology and innovation are reshaping property investment opportunities across the Emirates.",
-    image: "/placeholder.jpg",
-    author: "Latifa Bin Haider",
-    date: "June 12, 2025",
+      "Gen Z is revolutionizing real estate investment through fractional ownership platforms, enabling early entry into high-quality properties with small-ticket participation. This tech-enabled approach transforms real estate into a liquid asset.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+    author: "Economic Times",
+    date: "December 9, 2025",
     content:
-      "Real estate crowdfunding is transforming how investors access property markets in the UAE. With regulatory support and digital platforms, more investors can participate in high-quality assets than ever before.",
+      "Fractional ownership platforms are enabling young Indians to step into high-quality property investments far earlier than previous generations. By allowing small-ticket participation, offering app-based transparency, and easing exits, fractional investing is transforming real estate from a traditionally 'lumpy' commitment into a liquid, tech-enabled asset.",
+    externalUrl: "https://economictimes.indiatimes.com/markets/digital-real-estate/realty-news/fractional-investing-is-turning-gen-z-into-early-real-estate-owners-says-sourish-pal-of-client-associates/articleshow/125829382.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst",
   },
   {
-    slug: "smart-strategies-first-time-property-investors",
-    title: "Smart Investment Strategies for First-Time Property Investors",
+    slug: "fractional-ownership-platforms-sebi",
+    title: "Fractional Ownership Platforms - SEBI",
     excerpt:
-      "A comprehensive guide to making your first real estate investment through crowdfunding platforms.",
-    image: "/placeholder.jpg",
-    author: "Dr. Sarah Al-Mansouri",
-    date: "June 10, 2025",
+      "Understanding SEBI regulations and guidelines for fractional ownership platforms in India's real estate market.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+    author: "Colliers",
+    date: "2025",
     content:
-      "First-time investors can benefit from diversifying across multiple fractional properties, focusing on strong fundamentals such as location, yield, and sponsor track record.",
+      "SEBI has introduced regulations for fractional ownership platforms to ensure transparency and investor protection in the real estate market.",
+    externalUrl: "https://www.colliers.com/en-in/news/fractional-ownership-platforms",
   },
   {
-    slug: "dubai-property-market-opportunities-2025",
-    title: "Dubai's Property Market: Opportunities in 2025",
+    slug: "what-is-fractional-real-estate-investment",
+    title: "What Is Fractional Real Estate Investment and How Does It Work?",
     excerpt:
-      "Analyzing current trends and emerging opportunities in Dubai's real estate market.",
-    image: "/placeholder.jpg",
-    author: "Ahmed Hassan",
-    date: "June 8, 2025",
+      "A comprehensive guide to understanding fractional real estate investment, its benefits, risks, and how it works for investors.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+    author: "Angel One",
+    date: "2025",
     content:
-      "Dubai continues to attract global investors with its strategic location, infrastructure, and investor-friendly policies. 2025 presents unique opportunities across residential and commercial segments.",
+      "Fractional real estate investment allows multiple investors to own a share of a property, making real estate investment more accessible and affordable.",
+    externalUrl: "https://www.angelone.in/knowledge-center/personal-finance/what-is-fractional-real-estate-investment",
   },
   {
-    slug: "fractional-ownership-vs-traditional-investing",
-    title: "Fractional Ownership vs Traditional Real Estate Investing",
+    slug: "understanding-asset-tokenization-digital-asset",
+    title: "Understanding Asset Tokenization to Unlock Digital Asset Potential",
     excerpt:
-      "Compare the benefits, risks, and flexibility of fractional ownership against conventional property investing.",
-    image: "/placeholder.jpg",
-    author: "MiniLands Research Team",
-    date: "May 28, 2025",
+      "Explore how asset tokenization is revolutionizing real estate investment through blockchain technology and digital assets.",
+    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop",
+    author: "NPCI",
+    date: "2025",
     content:
-      "Fractional ownership lowers entry barriers and improves diversification, while traditional investing offers full control but higher capital requirements.",
+      "Asset tokenization is transforming how we think about real estate ownership and investment, making it more accessible through digital platforms.",
+    externalUrl: "https://www.npci.org.in/blog/understanding-asset-tokenization-to-unlock-digital-asset-potential",
   },
   {
-    slug: "building-passive-income-with-real-estate",
-    title: "Building Passive Income with Real Estate",
+    slug: "invest-high-value-stocks-without-burning-pocket",
+    title: "Can you invest in high-value stocks without burning a hole in your pocket?",
     excerpt:
-      "How to use income-generating properties to create a long-term passive income stream.",
-    image: "/placeholder.jpg",
-    author: "MiniLands Research Team",
-    date: "May 18, 2025",
+      "Discover how fractional investing principles apply to both stocks and real estate, making high-value investments accessible to everyone.",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
+    author: "Business Standard",
+    date: "October 3, 2025",
     content:
-      "Steady rental income from well-chosen properties can become the backbone of a diversified passive income strategy.",
+      "Fractional investment models are making high-value assets accessible to retail investors, whether in stocks or real estate.",
+    externalUrl: "https://www.business-standard.com/finance/personal-finance/can-you-invest-in-high-value-stocks-without-burning-a-hole-in-your-pocket-123100300326_1.html",
   },
 ];
 
@@ -88,27 +94,30 @@ export default function BlogsSection() {
             {sidePosts.map((post, index) => (
               <Link
                 key={index}
-                href={`/blogs/${post.slug}`}
+                href={post.externalUrl || `/blogs/${post.slug}`}
+                target={post.externalUrl ? "_blank" : undefined}
+                rel={post.externalUrl ? "noopener noreferrer" : undefined}
                 className="bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-300 group cursor-pointer"
               >
-                <div className="flex sm:block lg:flex">
-                  <div className="relative flex-shrink-0 w-32 sm:w-full lg:w-32">
-                    <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
-                      <Image
-                        src={post.image || "https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg"}
-                        alt={post.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
+                <div className="flex flex-row sm:flex-col lg:flex-row h-full">
+                  <div className="relative w-32 sm:w-full lg:w-32 flex-shrink-0 h-32 sm:h-48 lg:h-32">
+                    <Image
+                      src={post.image || "https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg"}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 128px"
+                    />
                   </div>
-                  <div className="p-3 flex-1 min-w-0">
-                    <h4 className="text-white text-sm font-semibold mb-1 leading-tight">
-                      {post.title}
-                    </h4>
-                    <p className="text-gray-400 text-xs mb-2 line-clamp-2">
-                      {post.excerpt}
-                    </p>
+                  <div className="p-4 flex-1 min-w-0 flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-white text-sm font-semibold mb-2 leading-tight line-clamp-2">
+                        {post.title}
+                      </h4>
+                      <p className="text-gray-400 text-xs mb-3 line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                    </div>
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-accent truncate mr-2">
                         {post.author}
@@ -126,7 +135,9 @@ export default function BlogsSection() {
           {/* Featured Post - Large blog on the right */}
           <div className="lg:col-span-2 lg:order-2 flex justify-center">
             <Link
-              href={`/blogs/${featuredPost.slug}`}
+              href={featuredPost.externalUrl || `/blogs/${featuredPost.slug}`}
+              target={featuredPost.externalUrl ? "_blank" : undefined}
+              rel={featuredPost.externalUrl ? "noopener noreferrer" : undefined}
               className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-300 group cursor-pointer max-w-2xl w-full"
             >
               <div className="relative h-80 lg:h-96">

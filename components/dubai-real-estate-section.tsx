@@ -21,13 +21,12 @@ export default function DubaiRealEstateSection() {
     {
       icon: Building,
       title: "Policy Powers Fractional Boom",
-      description:
-        "Reforms make property investing safer.",
+      description: "Reforms make property investing safer.",
     },
     {
       icon: Users,
       title: "Urban Growth Sparks Demand",
-      description: "city expansion boosts shared ownership.",
+      description: "City expansion boosts shared ownership.",
     },
     {
       icon: Globe,
@@ -67,42 +66,34 @@ export default function DubaiRealEstateSection() {
   ];
 
   return (
-    <section className="py-16 bg-background border-t border-white/20 relative">
-      {/* Background Image with Opacity */}
+    <section className="section-shine relative py-16 md:py-20">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
-        style={{
-          backgroundImage: "url('/lux.jpg')",
-        }}
-      ></div>
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35"
+        style={{ backgroundImage: "url('/lux.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-slate-950/75" />
 
-      {/* Overlay to ensure content readability */}
-      <div className="absolute inset-0 bg-background/40"></div>
-
-      <div className="container max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-4xl mx-auto">
-            Why India’s Fractional Real Estate is Outperforming Global Market ?
+      <div className="container relative z-10 mx-auto max-w-6xl px-4">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <span className="eyebrow">Market Edge</span>
+          <h2 className="section-heading mt-5">
+            Why India’s Fractional Real Estate is Outperforming Global Markets
           </h2>
-          <div className="w-24 h-1 bg-accent mx-auto"></div>
+          <div className="gold-rule mt-6" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {features.map((feature, index) => (
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2">
+          {features.map((feature) => (
             <div
-              key={index}
-              className="bg-white/95 backdrop-blur-sm rounded-xl p-6 flex items-start gap-4 border border-gray-200 hover:shadow-lg transition-all duration-300 hover:bg-white"
+              key={feature.title}
+              className="glass-panel flex items-start gap-4 p-5 transition duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-glow"
             >
-              <div className="flex-shrink-0 w-12 h-12 bg-background rounded-full flex items-center justify-center">
-                <feature.icon className="w-6 h-6 text-accent" />
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-accent/15">
+                <feature.icon className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
+                <h3 className="mb-1 text-lg font-semibold text-white">{feature.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-400">{feature.description}</p>
               </div>
             </div>
           ))}

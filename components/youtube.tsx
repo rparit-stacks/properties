@@ -7,52 +7,49 @@ export default function YouTubeVideosSection() {
   const videos = [
     {
       id: "1j9RAgm_S6Y",
-      title: "Real Estate Investment Basics: Getting Started with MiniLands",
-      description:
-        "Learn the fundamentals of real estate crowdfunding and how to make your first investment.",
-      duration: "8:45",
+      title:
+        "Land Tokenization System से आपकी ज़मीन पर मिलेगी ज़्यादा कीमत, क्या है पूरा Idea | Paisa Live",
+      description: "",
+      duration: "",
     },
     {
       id: "2sWB-NroqJY",
-      title: "Market Analysis: Dubai Property Trends 2025",
-      description:
-        "Expert insights into Dubai's real estate market and emerging investment opportunities.",
-      duration: "12:30",
+      title: "The Tokenization of The St. Regis Aspen Resort",
+      description: "",
+      duration: "",
     },
     {
       id: "6cCkimumA6Y",
-      title: "Building Your Investment Portfolio with Fractional Ownership",
-      description:
-        "Strategies for diversifying your portfolio through fractional real estate investments.",
-      duration: "15:20",
-    },
-    {
-      id: "tQwrJQ0fA88",
-      title: "Building Your Investment Portfolio with Fractional Ownership",
-      description:
-        "Strategies for diversifying your portfolio through fractional real estate investments.",
-      duration: "15:20",
+      title:
+        "Crypto World: How Tokenization Could Shake Up The $52 Trillion U.S. Real Estate Market",
+      description: "",
+      duration: "",
     },
     {
       id: "SJ2A0QUY7RI",
-      title: "Building Your Investment Portfolio with Fractional Ownership",
-      description:
-        "Strategies for diversifying your portfolio through fractional real estate investments.",
-      duration: "15:20",
-    },
-    {
-      id: "bfY30JVVkUs",
-      title: "Building Your Investment Portfolio with Fractional Ownership",
-      description:
-        "Strategies for diversifying your portfolio through fractional real estate investments.",
-      duration: "15:20",
+      title: "Fractional Ownership in Real Estate - what it is and how does it work?",
+      description: "",
+      duration: "",
     },
     {
       id: "ag8t4hOd-2U",
-      title: "Building Your Investment Portfolio with Fractional Ownership",
-      description:
-        "Strategies for diversifying your portfolio through fractional real estate investments.",
-      duration: "15:20",
+      title: "Fractional Ownership Real Estate India | Concept and Advantages",
+      description: "",
+      duration: "",
+    },
+    {
+      id: "QdYUdrnJvFM",
+      title:
+        "Tokenization of Real Estate in India: The Future of Property Investment | The Real Asset Show",
+      description: "",
+      duration: "",
+    },
+    {
+      id: "wkLZ375eR4w",
+      title:
+        "Easiest Way To Own Real Estate Without Investing Lakhs - REITs Explained For Beginners",
+      description: "",
+      duration: "",
     },
   ];
 
@@ -69,10 +66,10 @@ export default function YouTubeVideosSection() {
           <div className="w-24 h-1 bg-accent mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center">
           {/* Featured Video - Large on the left */}
-          <div className="lg:col-span-2">
-              <div className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-300 group">
+          <div className="w-full lg:w-2/3 flex items-center">
+              <div className="w-full bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-300 group">
               <div className="relative">
                 <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
                   <iframe
@@ -100,7 +97,7 @@ export default function YouTubeVideosSection() {
           </div>
 
           {/* Side Videos - Smaller on the right */}
-          <div className="space-y-4">
+          <div className="w-full lg:w-1/3 space-y-4">
             {sideVideos.map((video, index) => (
               <button
                 type="button"
@@ -138,7 +135,7 @@ export default function YouTubeVideosSection() {
 
         <div className="text-center mt-12">
           <Link
-            href="https://www.youtube.com"
+            href="https://www.youtube.com/@minilands_yt"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-accent hover:bg-accent/90 text-black px-8 py-3 rounded-full font-medium transition-colors duration-300"
