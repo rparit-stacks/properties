@@ -220,14 +220,16 @@ export default function FAQPage() {
             <div className="text-gray-300 text-sm md:text-base leading-relaxed space-y-2">
               <p>To initiate your investment, we&apos;ll need:</p>
               <ol className="list-decimal list-inside space-y-1">
-                <li>PAN Card</li>
+                <li>PAN Card — to verify your identity and tax details</li>
                 <li>
-                  Address proof (Aadhar, Driver&apos;s License, or Passport)
-                </li>
-                <li>
-                  Bank statement or cancelled cheque with your name printed
+                  A live selfie — to confirm you&apos;re a real person and the
+                  PAN belongs to you
                 </li>
               </ol>
+              <p>
+                Your documents are stored securely, used only for KYC
+                verification, and never shared for marketing.
+              </p>
               <p>For NRIs: only NRO account details are accepted.</p>
             </div>
           </div>

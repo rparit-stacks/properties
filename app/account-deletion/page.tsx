@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle2, Clock3, Mail, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Clock3, Mail, Smartphone, ShieldCheck } from "lucide-react";
 
 export default function AccountDeletionPage() {
   return (
@@ -19,20 +19,41 @@ export default function AccountDeletionPage() {
         <div className="mt-10 grid gap-6">
           <section className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
             <h2 className="flex items-center gap-3 text-xl font-semibold text-white">
-              <Mail className="h-6 w-6 text-accent" />
+              <Smartphone className="h-6 w-6 text-accent" />
               How to request deletion
             </h2>
             <ol className="mt-4 list-decimal space-y-3 pl-5 leading-7 text-slate-300">
-              <li>Open the MiniLands Android app and go to Profile / Settings.</li>
-              <li>Choose Account deletion, or email us from your registered address.</li>
+              <li>Open the MiniLands Android app.</li>
               <li>
-                Send your request to{" "}
+                Go to <strong className="text-white">More → Settings → Account deletion</strong>.
+                That opens this page inside your browser.
+              </li>
+              <li>
+                Email us from your registered address at{" "}
                 <a href="mailto:help.minilands@gmail.com" className="text-accent hover:underline">
                   help.minilands@gmail.com
                 </a>{" "}
-                with subject line &quot;Account deletion request&quot;.
+                with subject line &quot;Account deletion request&quot;, and include the email or
+                phone linked to your MiniLands account.
               </li>
             </ol>
+            <p className="mt-4 text-sm leading-6 text-slate-400">
+              You can also email us directly without using the app. We only process requests that we
+              can verify against a registered account.
+            </p>
+          </section>
+
+          <section className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+            <h2 className="flex items-center gap-3 text-xl font-semibold text-white">
+              <Mail className="h-6 w-6 text-accent" />
+              Contact for deletion
+            </h2>
+            <p className="mt-4 leading-7 text-slate-300">
+              <a href="mailto:help.minilands@gmail.com?subject=Account%20deletion%20request" className="text-accent hover:underline">
+                help.minilands@gmail.com
+              </a>
+              {" "}· Subject: Account deletion request
+            </p>
           </section>
 
           <section className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
@@ -73,7 +94,7 @@ export default function AccountDeletionPage() {
         </div>
 
         <p className="mt-10 text-sm text-slate-400">
-          Last updated: 26 July 2026 · Read our{" "}
+          Last updated: 4 August 2026 · Read our{" "}
           <Link href="/privacy" className="text-accent hover:underline">
             Privacy Policy
           </Link>
